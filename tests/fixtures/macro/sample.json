@@ -1,0 +1,37 @@
+{
+  "banco": "Banco Macro",
+  "fecha_desde": "01/12/2025",
+  "fecha_hasta": "07/01/2026",
+  "detalle": [
+    {
+      "fecha": "01/12/2025",
+      "descripcion": "TRANSF 23132999619 VAR",
+      "importe": 542000.0,
+      "saldo": 2548968.83
+    },
+    {
+      "fecha": "26/12/2025",
+      "descripcion": "ING TRANSF:ELIANA SOLEDAD",
+      "importe": 5500.0,
+      "saldo": 263000.0
+    },
+    {
+      "fecha": "29/12/2025",
+      "descripcion": "TRF MO CCDO MISMO - 30528968461",
+      "importe": -57640.0,
+      "saldo": 0.0
+    },
+    {
+      "fecha": "29/12/2025",
+      "descripcion": "TRANSF:2512290000785383360802-",
+      "importe": -205360.0,
+      "saldo": 57640.0
+    },
+    {
+      "fecha": "07/01/2026",
+      "descripcion": "TRANSF BOCCA, AD 27208259550",
+      "importe": 200000.0,
+      "saldo": 200000.0
+    }
+  ]
+}
