@@ -1,8 +1,17 @@
 # Cómo agregar un nuevo banco
 
-## 1. Definir patrones de detección
+## 1. Agregar al enum
 
-Agregar una entrada en `src/detectors/bank.py`:
+Agregar a `BankId` en `src/models/bank.py`:
+
+```python
+class BankId(Enum):
+    NUEVO_BANCO = "Banco Nuevo"
+```
+
+## 2. Agregar patrones de detección
+
+Registrar en `src/detectors/bank.py`:
 
 ```python
 Bank(
@@ -17,51 +26,25 @@ Bank(
 )
 ```
 
-## 2. Agregar al enum
+Detección por scoring: texto (+30 c/u), filename (+20), prefijo CBU (+50). Umbral mínimo 30.
 
-Agregar a `BankId` en `src/models/bank.py`:
+## 3. Verificar motor universal
 
-```python
-class BankId(Enum):
-    NUEVO_BANCO = "Banco Nuevo"
-```
+El pipeline usa el **motor universal** (`src/stages/`) para TODOS los bancos. No hay parsers específicos.
 
-## 3. Agregar filtros (si son distintos de los genéricos)
+Si el extracto del nuevo banco tiene estructura tabular clásica (fechas, montos, descripciones alineados), el motor universal debería procesarlo sin cambios.
 
-En `src/cleaners/filters.py`:
+### Si el motor no funciona bien:
 
-```python
-FILTERS[BankId.NUEVO_BANCO] = _build_skip_patterns([re.compile(r"^patron extra", re.I)])
-```
+1. **Ajustar umbrales en stages**: Los gaps de columnas (`_detect_lanes`), formato de fechas (`_classify_values`), etc. están en `src/stages/_utils.py` y `src/stages/column_detector.py`.
+2. **Agregar patrones de header/footer** en `src/stages/header_detector.py` o `footer_detector.py` si el banco tiene encabezados/pies específicos.
+3. **Agregar hints por banco** (a futuro): Si el motor necesita pistas sobre el layout, se pueden agregar hints configurables sin crear un parser completo.
 
-## 4. Implementar parser
+## 4. Testear
 
-Crear `src/parsers/nuevo_banco.py`:
+- Unit tests para los stages que modificaste en `tests/test_stages/`
+- Golden test con un PDF real del banco en `tests/samples/`
 
-```python
-import re
-from src.parsers.base import RawTransaction
+## Nota
 
-class NuevoBancoParser:
-    def parse_lines(self, lines: list[str]) -> list[RawTransaction]:
-        ...
-```
-
-## 5. Registrar en factory
-
-En `src/parsers/factory.py`:
-
-```python
-from src.parsers.nuevo_banco import NuevoBancoParser
-
-mapping = {
-    ...
-    BankId.NUEVO_BANCO: NuevoBancoParser,
-}
-```
-
-## 6. Testear
-
-- Unit tests con líneas de muestra
-- Fixture de texto completo en `tests/fixtures/nuevo_banco/`
-- Golden test con output esperado
+No necesitás crear parsers, factories, filters, ni implementar `BankParser` Protocol. Esa arquitectura fue eliminada. Todo pasa por el motor universal.

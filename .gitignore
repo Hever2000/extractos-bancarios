@@ -14,5 +14,5 @@ build/
 .coverage
 coverage.xml
 htmlcov/
-.pytest_cache/
 *.log
+robustness-report.json

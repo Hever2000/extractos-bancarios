@@ -1,0 +1,2101 @@
+{
+  "banco": "Banco Provincia",
+  "fecha_desde": "31/10/2025",
+  "fecha_hasta": "30/01/2026",
+  "detalle": [
+    {
+      "fecha": "31/10/2025",
+      "descripcion": "SALDO ANTERIOR",
+      "importe": 0.0,
+      "saldo": 2082200.93
+    },
+    {
+      "fecha": "03/11/2025",
+      "descripcion": "COMPRA TARJETA 31/10/25 21:30 COMPR. 000530418326681",
+      "importe": -21000.0,
+      "saldo": 2061200.93
+    },
+    {
+      "fecha": "03/11/2025",
+      "descripcion": "DB.DEBIN 02/11-S.001825 C:20398123698",
+      "importe": -16200.0,
+      "saldo": 2045000.93
+    },
+    {
+      "fecha": "03/11/2025",
+      "descripcion": "COMPRA TARJETA 03/11/25 13:37 COMPR. 000530716190302",
+      "importe": -42396.12,
+      "saldo": 2002604.81
+    },
+    {
+      "fecha": "03/11/2025",
+      "descripcion": "COMPRA TARJETA 03/11/25 16:56 COMPR. 000530719488090",
+      "importe": -6477.42,
+      "saldo": 1996127.39
+    },
+    {
+      "fecha": "04/11/2025",
+      "descripcion": "COMPRA TARJETA 03/11/25 18:35 COMPR. 000530721679029",
+      "importe": -12500.0,
+      "saldo": 1983627.39
+    },
+    {
+      "fecha": "04/11/2025",
+      "descripcion": "COMPRA TARJETA 03/11/25 18:30 COMPR. 000530721668737",
+      "importe": -15100.0,
+      "saldo": 1968527.39
+    },
+    {
+      "fecha": "04/11/2025",
+      "descripcion": "COMPRA TARJETA 03/11/25 21:47 COMPR. 000530721601502",
+      "importe": -35907.0,
+      "saldo": 1932620.39
+    },
+    {
+      "fecha": "04/11/2025",
+      "descripcion": "COMPRA TARJETA 03/11/25 21:56 COMPR. 000530721606257",
+      "importe": -38000.0,
+      "saldo": 1894620.39
+    },
+    {
+      "fecha": "04/11/2025",
+      "descripcion": "EXTRACCION CAJERO 03/11/25 13:31 COMPR. 000003356000000",
+      "importe": -40000.0,
+      "saldo": 1854620.39
+    },
+    {
+      "fecha": "04/11/2025",
+      "descripcion": "BIP DB.TR.04/11-C.908001 D:27232768113 N:PAULA BEATRIZ,",
+      "importe": -1380000.0,
+      "saldo": 474620.39
+    },
+    {
+      "fecha": "04/11/2025",
+      "descripcion": "PAGO MASTERCARD",
+      "importe": -63166.34,
+      "saldo": 411454.05
+    },
+    {
+      "fecha": "05/11/2025",
+      "descripcion": "CREDITO HABERES",
+      "importe": 2260779.32,
+      "saldo": 2672233.37
+    },
+    {
+      "fecha": "05/11/2025",
+      "descripcion": "CDNI 05/11-C.359211 D:30710034903 N:ASOCIACION ARGENTIN",
+      "importe": -200000.0,
+      "saldo": 2472233.37
+    },
+    {
+      "fecha": "05/11/2025",
+      "descripcion": "CDNI 05/11-C.363105 D:20963158433 N:MARIIA MARRERO",
+      "importe": -120000.0,
+      "saldo": 2352233.37
+    },
+    {
+      "fecha": "05/11/2025",
+      "descripcion": "EXTRACCION CAJERO 05/11/25 15:33 COMPR. 000000690000000",
+      "importe": -40000.0,
+      "saldo": 2312233.37
+    },
+    {
+      "fecha": "07/11/2025",
+      "descripcion": "CR.DEBIN 06/11-S.252350 C:27344659996",
+      "importe": 25000.0,
+      "saldo": 2337233.37
+    },
+    {
+      "fecha": "07/11/2025",
+      "descripcion": "CRED.TRF.06/11-C.158807795648 D:27220864222 N:RODRIGUEZ/SONIA",
+      "importe": 20000.0,
+      "saldo": 2357233.37
+    },
+    {
+      "fecha": "07/11/2025",
+      "descripcion": "COMPRA TARJETA 05/11/25 20:05 COMPR. 000530923439683",
+      "importe": -20000.0,
+      "saldo": 2337233.37
+    },
+    {
+      "fecha": "07/11/2025",
+      "descripcion": "COMPRA TARJETA 05/11/25 22:21 COMPR. 000530919325195",
+      "importe": -49300.0,
+      "saldo": 2287933.37
+    },
+    {
+      "fecha": "07/11/2025",
+      "descripcion": "COMPRA TARJETA 06/11/25 00:12 COMPR. 000531003777694",
+      "importe": -54700.0,
+      "saldo": 2233233.37
+    },
+    {
+      "fecha": "07/11/2025",
+      "descripcion": "COMPRA TARJETA 06/11/25 14:15 COMPR. 000531014919911",
+      "importe": -47060.98,
+      "saldo": 2186172.39
+    },
+    {
+      "fecha": "07/11/2025",
+      "descripcion": "COMPRA TARJETA 06/11/25 18:56 COMPR. 000531018401415",
+      "importe": -26899.9,
+      "saldo": 2159272.49
+    },
+    {
+      "fecha": "07/11/2025",
+      "descripcion": "COMPRA TARJETA 06/11/25 16:01 COMPR. 000531019738271",
+      "importe": -20600.0,
+      "saldo": 2138672.49
+    },
+    {
+      "fecha": "07/11/2025",
+      "descripcion": "COMPRA TARJETA 06/11/25 20:56 COMPR. 000531020365359",
+      "importe": -34155.0,
+      "saldo": 2104517.49
+    },
+    {
+      "fecha": "07/11/2025",
+      "descripcion": "DB.DEBIN 06/11-S.770004 C:23945264314",
+      "importe": -70408.0,
+      "saldo": 2034109.49
+    },
+    {
+      "fecha": "07/11/2025",
+      "descripcion": "DB.DEBIN 07/11-S.749670 C:20450142132",
+      "importe": -50000.0,
+      "saldo": 1984109.49
+    },
+    {
+      "fecha": "07/11/2025",
+      "descripcion": "COMPRA DE MONEDA EXTRANJERA",
+      "importe": -1499400.0,
+      "saldo": 484709.49
+    },
+    {
+      "fecha": "07/11/2025",
+      "descripcion": "P.SERV 07/11-COM.355654 -ENTEFJ6 -10016739723100",
+      "importe": -46832.99,
+      "saldo": 437876.5
+    },
+    {
+      "fecha": "10/11/2025",
+      "descripcion": "COMPRA TARJETA 08/11/25 18:06 COMPR. 000531215903115",
+      "importe": -33600.0,
+      "saldo": 404276.5
+    },
+    {
+      "fecha": "10/11/2025",
+      "descripcion": "COMPRA TARJETA 08/11/25 15:37 COMPR. 000531218194360",
+      "importe": -11600.0,
+      "saldo": 392676.5
+    },
+    {
+      "fecha": "10/11/2025",
+      "descripcion": "COMPRA TARJETA 08/11/25 22:28 COMPR. 000531222128110",
+      "importe": -18749.8,
+      "saldo": 373926.7
+    },
+    {
+      "fecha": "10/11/2025",
+      "descripcion": "COMPRA TARJETA 08/11/25 22:33 COMPR. 000531222130796",
+      "importe": -16200.0,
+      "saldo": 357726.7
+    },
+    {
+      "fecha": "10/11/2025",
+      "descripcion": "EXTRACCION CAJERO 08/11/25 19:37 COMPR. 000007192000000",
+      "importe": -40000.0,
+      "saldo": 317726.7
+    },
+    {
+      "fecha": "10/11/2025",
+      "descripcion": "DB.DEBIN 09/11-S.237756 C:27225030419",
+      "importe": -30000.0,
+      "saldo": 287726.7
+    },
+    {
+      "fecha": "10/11/2025",
+      "descripcion": "CDNI 09/11-C.472088 D:30525663929 N:ASOCIACION CIVIL DE",
+      "importe": -27000.0,
+      "saldo": 260726.7
+    },
+    {
+      "fecha": "10/11/2025",
+      "descripcion": "DB.DEBIN 09/11-S.364842 C:20181964287",
+      "importe": -60000.0,
+      "saldo": 200726.7
+    },
+    {
+      "fecha": "10/11/2025",
+      "descripcion": "COMPRA TARJETA 09/11/25 14:07 COMPR. 000531317862013",
+      "importe": -34000.0,
+      "saldo": 166726.7
+    },
+    {
+      "fecha": "10/11/2025",
+      "descripcion": "COMPRA TARJETA 10/11/25 16:52 COMPR. 000531419562343",
+      "importe": -4057.53,
+      "saldo": 162669.17
+    },
+    {
+      "fecha": "11/11/2025",
+      "descripcion": "CRED.TRF.10/11-C.565173982492 D:20223633170 N:CORONEL/ ADRIAN",
+      "importe": 450000.0,
+      "saldo": 612669.17
+    },
+    {
+      "fecha": "11/11/2025",
+      "descripcion": "CRED.TRF.10/11-C.565254871321 D:20223633170 N:CORONEL/ ADRIAN",
+      "importe": 50000.0,
+      "saldo": 662669.17
+    },
+    {
+      "fecha": "11/11/2025",
+      "descripcion": "EXTRACCION CAJERO 10/11/25 17:34 COMPR. 000001438000000",
+      "importe": -40000.0,
+      "saldo": 622669.17
+    },
+    {
+      "fecha": "11/11/2025",
+      "descripcion": "COMPRA TARJETA 10/11/25 20:28 COMPR. 000531423965446",
+      "importe": -64103.93,
+      "saldo": 558565.24
+    },
+    {
+      "fecha": "11/11/2025",
+      "descripcion": "COMPRA TARJETA 11/11/25 15:05 COMPR. 000531515114071",
+      "importe": -18774.0,
+      "saldo": 539791.24
+    },
+    {
+      "fecha": "11/11/2025",
+      "descripcion": "COMPRA TARJETA 11/11/25 15:35 COMPR. 000531515160753",
+      "importe": -700.0,
+      "saldo": 539091.24
+    },
+    {
+      "fecha": "11/11/2025",
+      "descripcion": "COMPRA TARJETA 11/11/25 19:50 COMPR. 000531519468482",
+      "importe": -11359.85,
+      "saldo": 527731.39
+    },
+    {
+      "fecha": "12/11/2025",
+      "descripcion": "COMPRA TARJETA 12/11/25 16:26 COMPR. 000531616119430",
+      "importe": -193140.0,
+      "saldo": 334591.39
+    },
+    {
+      "fecha": "13/11/2025",
+      "descripcion": "P.SERV 12/11-COM.459534 -ENTEFQY -030006009909",
+      "importe": -21966.79,
+      "saldo": 312624.6
+    },
+    {
+      "fecha": "13/11/2025",
+      "descripcion": "P.SERV 12/11-COM.459541 -AGUAS Y SA-0002864302",
+      "importe": -22758.05,
+      "saldo": 289866.55
+    },
+    {
+      "fecha": "13/11/2025",
+      "descripcion": "COMPRA TARJETA 12/11/25 22:21 COMPR. 000531622218215",
+      "importe": -39000.0,
+      "saldo": 250866.55
+    },
+    {
+      "fecha": "13/11/2025",
+      "descripcion": "P.SERV 12/11-COM.734766 -ENTE007 -0037346692",
+      "importe": -55555.51,
+      "saldo": 195311.04
+    },
+    {
+      "fecha": "14/11/2025",
+      "descripcion": "CRED.TRF.13/11-C.847351202044 D:27220864222 N:RODRIGUEZ/SONIA",
+      "importe": 20000.0,
+      "saldo": 215311.04
+    },
+    {
+      "fecha": "14/11/2025",
+      "descripcion": "COMPRA TARJETA 13/11/25 17:54 COMPR. 000531720398525",
+      "importe": -15650.5,
+      "saldo": 199660.54
+    },
+    {
+      "fecha": "14/11/2025",
+      "descripcion": "COMPRA TARJETA 14/11/25 02:29 COMPR. 000531802025691",
+      "importe": -54700.0,
+      "saldo": 144960.54
+    },
+    {
+      "fecha": "14/11/2025",
+      "descripcion": "CDNI 14/11-C.491182 D:20929375646 N:QUEIJO BLOIS RODOLF",
+      "importe": -4800.0,
+      "saldo": 140160.54
+    },
+    {
+      "fecha": "14/11/2025",
+      "descripcion": "CR.DEBIN 14/11-S.424915 C:27344659996",
+      "importe": 25000.0,
+      "saldo": 165160.54
+    },
+    {
+      "fecha": "17/11/2025",
+      "descripcion": "COMPRA TARJETA 15/11/25 02:23 COMPR. 000531902240435",
+      "importe": -600.0,
+      "saldo": 164560.54
+    },
+    {
+      "fecha": "17/11/2025",
+      "descripcion": "COMPRA TARJETA 15/11/25 00:47 COMPR. 000531900215096",
+      "importe": -15514.0,
+      "saldo": 149046.54
+    },
+    {
+      "fecha": "17/11/2025",
+      "descripcion": "COMPRA TARJETA 15/11/25 17:38 COMPR. 000531917196727",
+      "importe": -15000.0,
+      "saldo": 134046.54
+    },
+    {
+      "fecha": "17/11/2025",
+      "descripcion": "CREDITO HABERES",
+      "importe": 760638.71,
+      "saldo": 894685.25
+    },
+    {
+      "fecha": "17/11/2025",
+      "descripcion": "DB.DEBIN 17/11-S.639833 C:20315761094",
+      "importe": -128000.0,
+      "saldo": 766685.25
+    },
+    {
+      "fecha": "18/11/2025",
+      "descripcion": "COMPRA TARJETA 18/11/25 11:43 COMPR. 000532211817144",
+      "importe": -6746.4,
+      "saldo": 759938.85
+    },
+    {
+      "fecha": "18/11/2025",
+      "descripcion": "COMPRA TARJETA 18/11/25 19:49 COMPR. 000532219823558",
+      "importe": -5035.8,
+      "saldo": 754903.05
+    },
+    {
+      "fecha": "20/11/2025",
+      "descripcion": "EXTRACCION CAJERO 19/11/25 19:33 COMPR. 000000822000000",
+      "importe": -40000.0,
+      "saldo": 714903.05
+    },
+    {
+      "fecha": "20/11/2025",
+      "descripcion": "EXTRACCION CAJERO 19/11/25 19:34 COMPR. 000000823000000",
+      "importe": -40000.0,
+      "saldo": 674903.05
+    },
+    {
+      "fecha": "20/11/2025",
+      "descripcion": "COMPRA TARJETA 19/11/25 22:18 COMPR. 000532322362011",
+      "importe": -59213.0,
+      "saldo": 615690.05
+    },
+    {
+      "fecha": "20/11/2025",
+      "descripcion": "RECARGA CELULAR PERSONAL NRO. 1161033627",
+      "importe": -2000.0,
+      "saldo": 613690.05
+    },
+    {
+      "fecha": "25/11/2025",
+      "descripcion": "COMPRA TARJETA 20/11/25 22:46 COMPR. 000532422687323",
+      "importe": -25400.0,
+      "saldo": 588290.05
+    },
+    {
+      "fecha": "25/11/2025",
+      "descripcion": "COMPRA TARJETA 21/11/25 18:40 COMPR. 000532518925770",
+      "importe": -27675.0,
+      "saldo": 560615.05
+    },
+    {
+      "fecha": "25/11/2025",
+      "descripcion": "COMPRA TARJETA 21/11/25 19:01 COMPR. 000532519930637",
+      "importe": -88763.06,
+      "saldo": 471851.99
+    },
+    {
+      "fecha": "25/11/2025",
+      "descripcion": "BIP DB.TR.22/11-C.813434 D:20315761094 N:RIZZO IGNA",
+      "importe": -197929.76,
+      "saldo": 273922.23
+    },
+    {
+      "fecha": "25/11/2025",
+      "descripcion": "COMPRA TARJETA 22/11/25 16:22 COMPR. 000532619547525",
+      "importe": -12800.0,
+      "saldo": 261122.23
+    },
+    {
+      "fecha": "25/11/2025",
+      "descripcion": "COMPRA TARJETA 22/11/25 17:05 COMPR. 000532620567840",
+      "importe": -58432.0,
+      "saldo": 202690.23
+    },
+    {
+      "fecha": "25/11/2025",
+      "descripcion": "COMPRA TARJETA 22/11/25 21:09 COMPR. 000532621313944",
+      "importe": -24000.0,
+      "saldo": 178690.23
+    },
+    {
+      "fecha": "25/11/2025",
+      "descripcion": "COMPRA TARJETA 23/11/25 00:12 COMPR. 000532700709899",
+      "importe": -21059.0,
+      "saldo": 157631.23
+    },
+    {
+      "fecha": "25/11/2025",
+      "descripcion": "COMPRA TARJETA 23/11/25 00:51 COMPR. 000532700720556",
+      "importe": -700.0,
+      "saldo": 156931.23
+    },
+    {
+      "fecha": "25/11/2025",
+      "descripcion": "COMPRA TARJETA 23/11/25 01:01 COMPR. 000532704789387",
+      "importe": -86500.0,
+      "saldo": 70431.23
+    },
+    {
+      "fecha": "25/11/2025",
+      "descripcion": "CR.DEBIN 23/11-S.896751 C:27344659996",
+      "importe": 32300.0,
+      "saldo": 102731.23
+    },
+    {
+      "fecha": "25/11/2025",
+      "descripcion": "CRED.TRF.23/11-C.630511346873 D:27220864222 N:RODRIGUEZ/SONIA",
+      "importe": 30000.0,
+      "saldo": 132731.23
+    },
+    {
+      "fecha": "25/11/2025",
+      "descripcion": "COMPRA TARJETA 23/11/25 14:38 COMPR. 000532714485500",
+      "importe": -14000.0,
+      "saldo": 118731.23
+    },
+    {
+      "fecha": "25/11/2025",
+      "descripcion": "CDNI 23/11-C.217467 D:20470318733 N:SANTIAGO,CORONEL LA",
+      "importe": -50000.0,
+      "saldo": 68731.23
+    },
+    {
+      "fecha": "25/11/2025",
+      "descripcion": "COMPRA TARJETA 24/11/25 19:38 COMPR. 000532819784215",
+      "importe": -7000.0,
+      "saldo": 61731.23
+    },
+    {
+      "fecha": "25/11/2025",
+      "descripcion": "COMPRA TARJETA 24/11/25 21:20 COMPR. 000532821985170",
+      "importe": -17436.25,
+      "saldo": 44294.98
+    },
+    {
+      "fecha": "25/11/2025",
+      "descripcion": "COMPRA TARJETA 24/11/25 21:27 COMPR. 000532821661664",
+      "importe": -181.04,
+      "saldo": 44113.94
+    },
+    {
+      "fecha": "25/11/2025",
+      "descripcion": "COMPRA TARJETA 24/11/25 21:49 COMPR. 000532821730138",
+      "importe": -700.0,
+      "saldo": 43413.94
+    },
+    {
+      "fecha": "26/11/2025",
+      "descripcion": "DB.DEBIN 25/11-S.776727 C:20945169045",
+      "importe": -8000.0,
+      "saldo": 35413.94
+    },
+    {
+      "fecha": "26/11/2025",
+      "descripcion": "ACREDIT. INTERESES PERIODO DESDE 28-10-2025 HASTA 25- 11-2025",
+      "importe": 4112.65,
+      "saldo": 39526.59
+    },
+    {
+      "fecha": "26/11/2025",
+      "descripcion": "VENTA DE MONEDA EXTRANJERA",
+      "importe": 198810.0,
+      "saldo": 238336.59
+    },
+    {
+      "fecha": "26/11/2025",
+      "descripcion": "EXTRACCION CAJERO 26/11/25 15:30 COMPR. 000004757000000",
+      "importe": -40000.0,
+      "saldo": 198336.59
+    },
+    {
+      "fecha": "27/11/2025",
+      "descripcion": "CDNI 26/11-C.491747 D:20470318733 N:SANTIAGO,CORONEL LA",
+      "importe": -30000.0,
+      "saldo": 168336.59
+    },
+    {
+      "fecha": "27/11/2025",
+      "descripcion": "COMPRA TARJETA 26/11/25 22:25 COMPR. 000533022389341",
+      "importe": -30451.95,
+      "saldo": 137884.64
+    },
+    {
+      "fecha": "27/11/2025",
+      "descripcion": "COMPRA TARJETA 26/11/25 21:07 COMPR. 000533021473240",
+      "importe": -61812.0,
+      "saldo": 76072.64
+    },
+    {
+      "fecha": "28/11/2025",
+      "descripcion": "COMPRA TARJETA 27/11/25 17:48 COMPR. 000533120678609",
+      "importe": -21400.0,
+      "saldo": 54672.64
+    },
+    {
+      "fecha": "28/11/2025",
+      "descripcion": "COMPRA TARJETA 27/11/25 17:54 COMPR. 000533120686407",
+      "importe": -21740.0,
+      "saldo": 32932.64
+    },
+    {
+      "fecha": "28/11/2025",
+      "descripcion": "CREDITO HABERES",
+      "importe": 4649469.46,
+      "saldo": 4682402.1
+    },
+    {
+      "fecha": "28/11/2025",
+      "descripcion": "DB.DEBIN 28/11-S.438258 C:20450142132",
+      "importe": -50000.0,
+      "saldo": 4632402.1
+    },
+    {
+      "fecha": "28/11/2025",
+      "descripcion": "CDNI 28/11-C.365025 D:20470318733 N:SANTIAGO,CORONEL LA",
+      "importe": -150000.0,
+      "saldo": 4482402.1
+    },
+    {
+      "fecha": "28/11/2025",
+      "descripcion": "CUENTA DNI - RECARGA 28/11 - S.399184",
+      "importe": -5000.0,
+      "saldo": 4477402.1
+    },
+    {
+      "fecha": "28/11/2025",
+      "descripcion": "COMPRA TARJETA 28/11/25 16:03 COMPR. 000533216201277",
+      "importe": -39969.0,
+      "saldo": 4437433.1
+    },
+    {
+      "fecha": "28/11/2025",
+      "descripcion": "COMPRA TARJETA 28/11/25 16:41 COMPR. 000533216207469",
+      "importe": -750.0,
+      "saldo": 4436683.1
+    },
+    {
+      "fecha": "01/12/2025",
+      "descripcion": "EXTRACCION CAJERO 28/11/25 18:14 COMPR. 000008452000000",
+      "importe": -40000.0,
+      "saldo": 4396683.1
+    },
+    {
+      "fecha": "01/12/2025",
+      "descripcion": "COMPRA TARJETA 28/11/25 18:12 COMPR. 000533221491452",
+      "importe": -44500.0,
+      "saldo": 4352183.1
+    },
+    {
+      "fecha": "01/12/2025",
+      "descripcion": "P.SERV 30/11-COM.129452 -ENTEDM4 -0005523472",
+      "importe": -31995.86,
+      "saldo": 4320187.24
+    },
+    {
+      "fecha": "01/12/2025",
+      "descripcion": "P.SERV 30/11-COM.628481 -ENTE047 -10000607000470",
+      "importe": -560853.0,
+      "saldo": 3759334.24
+    },
+    {
+      "fecha": "01/12/2025",
+      "descripcion": "P.SERV 30/11-COM.623251 -ENTE007 -0037346692",
+      "importe": -56800.28,
+      "saldo": 3702533.96
+    },
+    {
+      "fecha": "01/12/2025",
+      "descripcion": "PAGO VISA",
+      "importe": -665153.11,
+      "saldo": 3037380.85
+    },
+    {
+      "fecha": "01/12/2025",
+      "descripcion": "BIP DB.TR.30/11-C.006578 D:27232768113 N:PAULA BEATRIZ,",
+      "importe": -1390000.0,
+      "saldo": 1647380.85
+    },
+    {
+      "fecha": "01/12/2025",
+      "descripcion": "COMPRA TARJETA 30/11/25 20:47 COMPR. 000533420919980",
+      "importe": -309027.79,
+      "saldo": 1338353.06
+    },
+    {
+      "fecha": "01/12/2025",
+      "descripcion": "PAGO CUOTA DE PRESTAMO         1987 BIYCSA",
+      "importe": -10670.19,
+      "saldo": 1327682.87
+    },
+    {
+      "fecha": "01/12/2025",
+      "descripcion": "PAGO CUOTA DE PRESTAMO         1987 BIYCSA",
+      "importe": -30978.75,
+      "saldo": 1296704.12
+    },
+    {
+      "fecha": "01/12/2025",
+      "descripcion": "COMPRA TARJETA 01/12/25 13:31 COMPR. 000533516196113",
+      "importe": -27990.0,
+      "saldo": 1268714.12
+    },
+    {
+      "fecha": "02/12/2025",
+      "descripcion": "EXTRACCION CAJERO 01/12/25 18:19 COMPR. 000003919000000",
+      "importe": -20000.0,
+      "saldo": 1248714.12
+    },
+    {
+      "fecha": "02/12/2025",
+      "descripcion": "COMPRA TARJETA 01/12/25 18:33 COMPR. 000533521435576",
+      "importe": -22800.0,
+      "saldo": 1225914.12
+    },
+    {
+      "fecha": "02/12/2025",
+      "descripcion": "EXTRACCION CAJERO 01/12/25 18:18 COMPR. 000003918000000",
+      "importe": -40000.0,
+      "saldo": 1185914.12
+    },
+    {
+      "fecha": "02/12/2025",
+      "descripcion": "EXTRACCION CAJERO 01/12/25 18:18 COMPR. 000003917000000",
+      "importe": -40000.0,
+      "saldo": 1145914.12
+    },
+    {
+      "fecha": "03/12/2025",
+      "descripcion": "CDNI 02/12-C.172487 D:20082091700 N:ARROYO HUGO ANTONIO",
+      "importe": -180000.0,
+      "saldo": 965914.12
+    },
+    {
+      "fecha": "03/12/2025",
+      "descripcion": "DEVO.VISA ELE. 003 506086/9 01/12/20 23.17.41",
+      "importe": 11017.88,
+      "saldo": 976932.0
+    },
+    {
+      "fecha": "04/12/2025",
+      "descripcion": "COMPRA TARJETA 03/12/25 22:07 COMPR. 000533722540530",
+      "importe": -16399.8,
+      "saldo": 960532.2
+    },
+    {
+      "fecha": "04/12/2025",
+      "descripcion": "COMPRA TARJETA 03/12/25 23:33 COMPR. 000533702139797",
+      "importe": -56100.0,
+      "saldo": 904432.2
+    },
+    {
+      "fecha": "04/12/2025",
+      "descripcion": "DB.DEBIN 04/12-S.347921 C:20398123698",
+      "importe": -18400.0,
+      "saldo": 886032.2
+    },
+    {
+      "fecha": "05/12/2025",
+      "descripcion": "COMPRA TARJETA 04/12/25 21:27 COMPR. 000533821028605",
+      "importe": -2300.0,
+      "saldo": 883732.2
+    },
+    {
+      "fecha": "05/12/2025",
+      "descripcion": "COMPRA TARJETA 04/12/25 17:26 COMPR. 000533820777994",
+      "importe": -7301.91,
+      "saldo": 876430.29
+    },
+    {
+      "fecha": "05/12/2025",
+      "descripcion": "COMPRA TARJETA 04/12/25 21:25 COMPR. 000533821876339",
+      "importe": -30360.0,
+      "saldo": 846070.29
+    },
+    {
+      "fecha": "05/12/2025",
+      "descripcion": "CDNI 04/12-C.160496 D:20963158433 N:MARIIA MARRERO",
+      "importe": -90000.0,
+      "saldo": 756070.29
+    },
+    {
+      "fecha": "05/12/2025",
+      "descripcion": "CDNI 04/12-C.012884 D:30710034903 N:ASOCIACION",
+      "importe": -200000.0,
+      "saldo": 556070.29
+    },
+    {
+      "fecha": "05/12/2025",
+      "descripcion": "COMPRA TARJETA 05/12/25 14:35 COMPR. 000533917470213",
+      "importe": -96640.0,
+      "saldo": 459430.29
+    },
+    {
+      "fecha": "05/12/2025",
+      "descripcion": "ASOC MUTUALISTA DE EM 30545959948 BCO.014 REF.",
+      "importe": 451774.94,
+      "saldo": 911205.23
+    },
+    {
+      "fecha": "09/12/2025",
+      "descripcion": "P.SERV 05/12-COM.773325 -ENTEFJ6 -10016739723100",
+      "importe": -43223.5,
+      "saldo": 867981.73
+    },
+    {
+      "fecha": "09/12/2025",
+      "descripcion": "COMPRA TARJETA 05/12/25 23:09 COMPR. 000533923687440",
+      "importe": -50180.0,
+      "saldo": 817801.73
+    },
+    {
+      "fecha": "09/12/2025",
+      "descripcion": "COMPRA TARJETA 05/12/25 18:19 COMPR. 000533921625709",
+      "importe": -53957.12,
+      "saldo": 763844.61
+    },
+    {
+      "fecha": "09/12/2025",
+      "descripcion": "BIP DB.TR.05/12-C.338756 D:23253851074 N:LEAL SILV",
+      "importe": -173188.54,
+      "saldo": 590656.07
+    },
+    {
+      "fecha": "09/12/2025",
+      "descripcion": "PAGO MASTERCARD",
+      "importe": -230898.35,
+      "saldo": 359757.72
+    },
+    {
+      "fecha": "09/12/2025",
+      "descripcion": "COMPRA TARJETA 06/12/25 14:57 COMPR. 000534014508451",
+      "importe": -40100.0,
+      "saldo": 319657.72
+    },
+    {
+      "fecha": "09/12/2025",
+      "descripcion": "COMPRA TARJETA 06/12/25 15:49 COMPR. 000534015545063",
+      "importe": -34500.0,
+      "saldo": 285157.72
+    },
+    {
+      "fecha": "09/12/2025",
+      "descripcion": "COMPRA TARJETA 06/12/25 15:52 COMPR. 000534015547331",
+      "importe": -37000.0,
+      "saldo": 248157.72
+    },
+    {
+      "fecha": "09/12/2025",
+      "descripcion": "COMPRA TARJETA 06/12/25 14:05 COMPR. 000534017183971",
+      "importe": -17200.0,
+      "saldo": 230957.72
+    },
+    {
+      "fecha": "09/12/2025",
+      "descripcion": "COMPRA TARJETA 06/12/25 14:14 COMPR. 000534017197194",
+      "importe": -45000.0,
+      "saldo": 185957.72
+    },
+    {
+      "fecha": "09/12/2025",
+      "descripcion": "COMPRA TARJETA 06/12/25 14:22 COMPR. 000534017192754",
+      "importe": -124000.0,
+      "saldo": 61957.72
+    },
+    {
+      "fecha": "09/12/2025",
+      "descripcion": "COMPRA TARJETA 07/12/25 15:53 COMPR. 000534115621696",
+      "importe": -35800.0,
+      "saldo": 26157.72
+    },
+    {
+      "fecha": "09/12/2025",
+      "descripcion": "COMPRA TARJETA 09/12/25 16:40 COMPR. 000534319924833",
+      "importe": -5971.02,
+      "saldo": 20186.7
+    },
+    {
+      "fecha": "10/12/2025",
+      "descripcion": "CR.DEBIN 09/12-S.897698 C:27344659996",
+      "importe": 20000.0,
+      "saldo": 40186.7
+    },
+    {
+      "fecha": "10/12/2025",
+      "descripcion": "COMPRA TARJETA 09/12/25 21:18 COMPR. 000534321804673",
+      "importe": -18000.0,
+      "saldo": 22186.7
+    },
+    {
+      "fecha": "11/12/2025",
+      "descripcion": "TRANSF DE CORONEL, ADRIAN RAM (20223633170) VAR",
+      "importe": 450000.0,
+      "saldo": 472186.7
+    },
+    {
+      "fecha": "11/12/2025",
+      "descripcion": "COMPRA TARJETA 10/12/25 22:54 COMPR. 000534422334980",
+      "importe": -12700.0,
+      "saldo": 459486.7
+    },
+    {
+      "fecha": "11/12/2025",
+      "descripcion": "TRANSF DE CORONEL, ADRIAN RAM (20223633170) VAR",
+      "importe": 50000.0,
+      "saldo": 509486.7
+    },
+    {
+      "fecha": "12/12/2025",
+      "descripcion": "COMPRA TARJETA 11/12/25 21:31 COMPR. 000534521471855",
+      "importe": -15000.0,
+      "saldo": 494486.7
+    },
+    {
+      "fecha": "12/12/2025",
+      "descripcion": "COMPRA TARJETA 11/12/25 22:15 COMPR. 000534522033069",
+      "importe": -30355.0,
+      "saldo": 464131.7
+    },
+    {
+      "fecha": "12/12/2025",
+      "descripcion": "EXTRACCION CAJERO 11/12/25 19:22 COMPR. 000006947000000",
+      "importe": -40000.0,
+      "saldo": 424131.7
+    },
+    {
+      "fecha": "12/12/2025",
+      "descripcion": "CDNI 11/12-C.814833 D:20178027531 N:CZAR CRISTIAN",
+      "importe": -131000.0,
+      "saldo": 293131.7
+    },
+    {
+      "fecha": "12/12/2025",
+      "descripcion": "DB.DEBIN 12/12-S.849223 C:20450142132",
+      "importe": -50000.0,
+      "saldo": 243131.7
+    },
+    {
+      "fecha": "12/12/2025",
+      "descripcion": "TRANSF DE RODRIGUEZ/SONIA M (27220864222) VAR VARVarios",
+      "importe": 783627.0,
+      "saldo": 1026758.7
+    },
+    {
+      "fecha": "12/12/2025",
+      "descripcion": "COMPRA TARJETA 12/12/25 17:34 COMPR. 000534617046172",
+      "importe": -10700.0,
+      "saldo": 1016058.7
+    },
+    {
+      "fecha": "15/12/2025",
+      "descripcion": "TRANSF DE RODRIGUEZ/SONIA M (27220864222) VAR VARVarios",
+      "importe": 17000.0,
+      "saldo": 1033058.7
+    },
+    {
+      "fecha": "15/12/2025",
+      "descripcion": "COMPRA TARJETA 13/12/25 00:31 COMPR. 000534700739409",
+      "importe": -750.0,
+      "saldo": 1032308.7
+    },
+    {
+      "fecha": "15/12/2025",
+      "descripcion": "COMPRA TARJETA 12/12/25 23:45 COMPR. 000534623728159",
+      "importe": -22969.0,
+      "saldo": 1009339.7
+    },
+    {
+      "fecha": "15/12/2025",
+      "descripcion": "EXTRACCION CAJERO 12/12/25 20:27 COMPR. 000007513000000",
+      "importe": -40000.0,
+      "saldo": 969339.7
+    },
+    {
+      "fecha": "15/12/2025",
+      "descripcion": "CDNI 12/12-C.088288 D:20470318733 N:SANTIAGO,CORONEL LA",
+      "importe": -70000.0,
+      "saldo": 899339.7
+    },
+    {
+      "fecha": "15/12/2025",
+      "descripcion": "COMPRA TARJETA 12/12/25 19:52 COMPR. 000534619455451",
+      "importe": -70080.7,
+      "saldo": 829259.0
+    },
+    {
+      "fecha": "15/12/2025",
+      "descripcion": "COMPRA TARJETA 13/12/25 00:38 COMPR. 000534703697514",
+      "importe": -62800.0,
+      "saldo": 766459.0
+    },
+    {
+      "fecha": "15/12/2025",
+      "descripcion": "COMPRA TARJETA 13/12/25 21:08 COMPR. 000534700256061",
+      "importe": -26500.0,
+      "saldo": 739959.0
+    },
+    {
+      "fecha": "15/12/2025",
+      "descripcion": "COMPRA TARJETA 13/12/25 21:48 COMPR. 000534700270045",
+      "importe": -42500.0,
+      "saldo": 697459.0
+    },
+    {
+      "fecha": "15/12/2025",
+      "descripcion": "COMPRA TARJETA 14/12/25 14:56 COMPR. 000534814976316",
+      "importe": -31439.0,
+      "saldo": 666020.0
+    },
+    {
+      "fecha": "15/12/2025",
+      "descripcion": "COMPRA TARJETA 14/12/25 15:17 COMPR. 000534815978691",
+      "importe": -750.0,
+      "saldo": 665270.0
+    },
+    {
+      "fecha": "15/12/2025",
+      "descripcion": "CR.DEBIN 14/12-S.766165 C:27344659996",
+      "importe": 17000.0,
+      "saldo": 682270.0
+    },
+    {
+      "fecha": "15/12/2025",
+      "descripcion": "COMPRA TARJETA 14/12/25 18:25 COMPR. 000534821626336",
+      "importe": -64000.0,
+      "saldo": 618270.0
+    },
+    {
+      "fecha": "15/12/2025",
+      "descripcion": "COMPRA TARJETA 15/12/25 01:47 COMPR. 000534901175659",
+      "importe": -16789.0,
+      "saldo": 601481.0
+    },
+    {
+      "fecha": "15/12/2025",
+      "descripcion": "CR. SAC/HSEX/OTROS",
+      "importe": 2499979.42,
+      "saldo": 3101460.42
+    },
+    {
+      "fecha": "15/12/2025",
+      "descripcion": "CREDITO HABERES",
+      "importe": 1594845.25,
+      "saldo": 4696305.67
+    },
+    {
+      "fecha": "15/12/2025",
+      "descripcion": "COMPRA TARJETA 15/12/25 03:43 COMPR. 000534903843691",
+      "importe": -700.0,
+      "saldo": 4695605.67
+    },
+    {
+      "fecha": "15/12/2025",
+      "descripcion": "COMPRA TARJETA 15/12/25 14:51 COMPR. 000534917131342",
+      "importe": -242000.0,
+      "saldo": 4453605.67
+    },
+    {
+      "fecha": "15/12/2025",
+      "descripcion": "FONDO COMUN DE INVERSION",
+      "importe": -1567253.62,
+      "saldo": 2886352.05
+    },
+    {
+      "fecha": "15/12/2025",
+      "descripcion": "P.SERV 15/12-COM.731145 -ENTEFQY -030006009909",
+      "importe": -7394.08,
+      "saldo": 2878957.97
+    },
+    {
+      "fecha": "15/12/2025",
+      "descripcion": "EXTRACCION CAJERO 15/12/25 16:24 COMPR. 000008707000000",
+      "importe": -40000.0,
+      "saldo": 2838957.97
+    },
+    {
+      "fecha": "15/12/2025",
+      "descripcion": "EXTRACCION CAJERO 15/12/25 16:25 COMPR. 000008708000000",
+      "importe": -40000.0,
+      "saldo": 2798957.97
+    },
+    {
+      "fecha": "16/12/2025",
+      "descripcion": "COMPRA TARJETA 15/12/25 19:23 COMPR. 000534922322855",
+      "importe": -18600.0,
+      "saldo": 2780357.97
+    },
+    {
+      "fecha": "16/12/2025",
+      "descripcion": "COMPRA TARJETA 15/12/25 19:07 COMPR. 000534922312036",
+      "importe": -74008.96,
+      "saldo": 2706349.01
+    },
+    {
+      "fecha": "16/12/2025",
+      "descripcion": "COMPRA TARJETA 16/12/25 12:26 COMPR. 000535012648248",
+      "importe": -50000.0,
+      "saldo": 2656349.01
+    },
+    {
+      "fecha": "17/12/2025",
+      "descripcion": "COMPRA TARJETA 16/12/25 23:32 COMPR. 000535023950405",
+      "importe": -27633.0,
+      "saldo": 2628716.01
+    },
+    {
+      "fecha": "17/12/2025",
+      "descripcion": "COMPRA TARJETA 16/12/25 23:26 COMPR. 000535023947066",
+      "importe": -32855.0,
+      "saldo": 2595861.01
+    },
+    {
+      "fecha": "17/12/2025",
+      "descripcion": "EXTRACCION CAJERO 16/12/25 20:37 COMPR. 000008677000000",
+      "importe": -40000.0,
+      "saldo": 2555861.01
+    },
+    {
+      "fecha": "17/12/2025",
+      "descripcion": "EXTRACCION CAJERO 16/12/25 20:38 COMPR. 000008678000000",
+      "importe": -40000.0,
+      "saldo": 2515861.01
+    },
+    {
+      "fecha": "17/12/2025",
+      "descripcion": "CDNI 16/12-C.092389 D:20470318733 N:SANTIAGO,CORONEL LA",
+      "importe": -120000.0,
+      "saldo": 2395861.01
+    },
+    {
+      "fecha": "17/12/2025",
+      "descripcion": "COMPRA TARJETA 17/12/25 13:43 COMPR. 000535116567644",
+      "importe": -42671.5,
+      "saldo": 2353189.51
+    },
+    {
+      "fecha": "19/12/2025",
+      "descripcion": "TRANSF DE EMER CECILIA ELIZABE (27344659996) VAR",
+      "importe": 20000.0,
+      "saldo": 2373189.51
+    },
+    {
+      "fecha": "19/12/2025",
+      "descripcion": "TRANSF DE RODRIGUEZ/SONIA M (27220864222) VAR VARVarios",
+      "importe": 20000.0,
+      "saldo": 2393189.51
+    },
+    {
+      "fecha": "19/12/2025",
+      "descripcion": "COMPRA TARJETA 19/12/25 00:05 COMPR. 000535300286752",
+      "importe": -750.0,
+      "saldo": 2392439.51
+    },
+    {
+      "fecha": "19/12/2025",
+      "descripcion": "COMPRA TARJETA 18/12/25 23:42 COMPR. 000535223627506",
+      "importe": -40039.0,
+      "saldo": 2352400.51
+    },
+    {
+      "fecha": "19/12/2025",
+      "descripcion": "COMPRA TARJETA 18/12/25 23:57 COMPR. 000535202704704",
+      "importe": -58600.0,
+      "saldo": 2293800.51
+    },
+    {
+      "fecha": "22/12/2025",
+      "descripcion": "COMPRA TARJETA 19/12/25 22:09 COMPR. 000535322142248",
+      "importe": -31086.99,
+      "saldo": 2262713.52
+    },
+    {
+      "fecha": "22/12/2025",
+      "descripcion": "COMPRA TARJETA 20/12/25 16:23 COMPR. 000535419344978",
+      "importe": -129998.0,
+      "saldo": 2132715.52
+    },
+    {
+      "fecha": "22/12/2025",
+      "descripcion": "COMPRA TARJETA 20/12/25 16:32 COMPR. 000535419347670",
+      "importe": -64900.0,
+      "saldo": 2067815.52
+    },
+    {
+      "fecha": "22/12/2025",
+      "descripcion": "COMPRA TARJETA 20/12/25 17:04 COMPR. 000535420378697",
+      "importe": -46657.0,
+      "saldo": 2021158.52
+    },
+    {
+      "fecha": "22/12/2025",
+      "descripcion": "COMPRA TARJETA 20/12/25 18:13 COMPR. 000535421430264",
+      "importe": -22000.0,
+      "saldo": 1999158.52
+    },
+    {
+      "fecha": "22/12/2025",
+      "descripcion": "P.SERV 21/12-COM.907507 -ENTE047 -10000607000470",
+      "importe": -867298.0,
+      "saldo": 1131860.52
+    },
+    {
+      "fecha": "22/12/2025",
+      "descripcion": "P.SERV 21/12-COM.907514 -ENTE008 -8108649134",
+      "importe": -60303.56,
+      "saldo": 1071556.96
+    },
+    {
+      "fecha": "22/12/2025",
+      "descripcion": "P.SERV 21/12-COM.014590 -AGUAS Y SA-0002864302",
+      "importe": -22978.01,
+      "saldo": 1048578.95
+    },
+    {
+      "fecha": "22/12/2025",
+      "descripcion": "BIP DB.TR.21/12-C.003260 D:20315761094 N:RIZZO IGNA",
+      "importe": -225640.16,
+      "saldo": 822938.79
+    },
+    {
+      "fecha": "22/12/2025",
+      "descripcion": "BIP DB.TR.21/12-C.997002 D:23253851074 N:LEAL SILV",
+      "importe": -197435.14,
+      "saldo": 625503.65
+    },
+    {
+      "fecha": "22/12/2025",
+      "descripcion": "DB.DEBIN 21/12-S.661487 C:20315761094",
+      "importe": -35000.0,
+      "saldo": 590503.65
+    },
+    {
+      "fecha": "22/12/2025",
+      "descripcion": "DB.DEBIN 21/12-S.666480 C:30708282274",
+      "importe": -158379.7,
+      "saldo": 432123.95
+    },
+    {
+      "fecha": "22/12/2025",
+      "descripcion": "COMPRA TARJETA 21/12/25 17:39 COMPR. 000535517685495",
+      "importe": -34860.99,
+      "saldo": 397262.96
+    },
+    {
+      "fecha": "22/12/2025",
+      "descripcion": "COMPRA TARJETA 21/12/25 20:17 COMPR. 000535523156860",
+      "importe": -19000.0,
+      "saldo": 378262.96
+    },
+    {
+      "fecha": "22/12/2025",
+      "descripcion": "COMPRA TARJETA 21/12/25 20:35 COMPR. 000535523171024",
+      "importe": -35922.06,
+      "saldo": 342340.9
+    },
+    {
+      "fecha": "23/12/2025",
+      "descripcion": "COMPRA TARJETA 22/12/25 23:46 COMPR. 000535623483206",
+      "importe": -41047.03,
+      "saldo": 301293.87
+    },
+    {
+      "fecha": "23/12/2025",
+      "descripcion": "COMPRA TARJETA 22/12/25 22:14 COMPR. 000535601087115",
+      "importe": -51700.0,
+      "saldo": 249593.87
+    },
+    {
+      "fecha": "26/12/2025",
+      "descripcion": "COMPRA TARJETA 23/12/25 21:42 COMPR. 000535700049338",
+      "importe": -20000.0,
+      "saldo": 229593.87
+    },
+    {
+      "fecha": "26/12/2025",
+      "descripcion": "DB.DEBIN 23/12-S.135011 C:27165991929",
+      "importe": -32000.0,
+      "saldo": 197593.87
+    },
+    {
+      "fecha": "26/12/2025",
+      "descripcion": "COMPRA TARJETA 23/12/25 21:38 COMPR. 000535721028413",
+      "importe": -40513.0,
+      "saldo": 157080.87
+    },
+    {
+      "fecha": "26/12/2025",
+      "descripcion": "CREDITO HABERES",
+      "importe": 5801580.07,
+      "saldo": 5958660.94
+    },
+    {
+      "fecha": "26/12/2025",
+      "descripcion": "DB.DEBIN 26/12-S.486808 C:20450142132",
+      "importe": -50000.0,
+      "saldo": 5908660.94
+    },
+    {
+      "fecha": "26/12/2025",
+      "descripcion": "COMPRA TARJETA 26/12/25 11:54 COMPR. 000536011087752",
+      "importe": -36000.0,
+      "saldo": 5872660.94
+    },
+    {
+      "fecha": "26/12/2025",
+      "descripcion": "RECARGA CELULAR PERSONAL NRO. 1161033627",
+      "importe": -2000.0,
+      "saldo": 5870660.94
+    },
+    {
+      "fecha": "26/12/2025",
+      "descripcion": "DB.DEBIN 26/12-S.556951 C:30715778722",
+      "importe": -251417.0,
+      "saldo": 5619243.94
+    },
+    {
+      "fecha": "26/12/2025",
+      "descripcion": "EXTRACCION CAJERO 26/12/25 14:06 COMPR. 000001323000000",
+      "importe": -40000.0,
+      "saldo": 5579243.94
+    },
+    {
+      "fecha": "29/12/2025",
+      "descripcion": "COMPRA TARJETA 26/12/25 21:02 COMPR. 000536021790912",
+      "importe": -81243.18,
+      "saldo": 5498000.76
+    },
+    {
+      "fecha": "29/12/2025",
+      "descripcion": "ACREDIT. INTERESES PERIODO DESDE 25-11-2025 HASTA 26- 12-2025",
+      "importe": 6136.72,
+      "saldo": 5504137.48
+    },
+    {
+      "fecha": "29/12/2025",
+      "descripcion": "COMPRA TARJETA 27/12/25 14:26 COMPR. 000536114013975",
+      "importe": -69664.79,
+      "saldo": 5434472.69
+    },
+    {
+      "fecha": "29/12/2025",
+      "descripcion": "DB.DEBIN 27/12-S.878860 C:20398123698",
+      "importe": -31000.0,
+      "saldo": 5403472.69
+    },
+    {
+      "fecha": "29/12/2025",
+      "descripcion": "COMPRA TARJETA 28/12/25 23:09 COMPR. 000536202056837",
+      "importe": -60038.0,
+      "saldo": 5343434.69
+    },
+    {
+      "fecha": "29/12/2025",
+      "descripcion": "CDNI 28/12-C.935718 D:20470318733 N:SANTIAGO,CORONEL LA",
+      "importe": -200000.0,
+      "saldo": 5143434.69
+    },
+    {
+      "fecha": "29/12/2025",
+      "descripcion": "P.SERV 29/12-COM.172664 -ENTEDM4 -0005523472",
+      "importe": -38938.7,
+      "saldo": 5104495.99
+    },
+    {
+      "fecha": "29/12/2025",
+      "descripcion": "P.SERV 29/12-COM.172674 -ENTE007 -0037346692",
+      "importe": -55870.85,
+      "saldo": 5048625.14
+    },
+    {
+      "fecha": "30/12/2025",
+      "descripcion": "COMPRA TARJETA 29/12/25 19:55 COMPR. 000536322668582",
+      "importe": -34150.0,
+      "saldo": 5014475.14
+    },
+    {
+      "fecha": "30/12/2025",
+      "descripcion": "DB.DEBIN 29/12-S.999346 C:23945264314",
+      "importe": -71890.0,
+      "saldo": 4942585.14
+    },
+    {
+      "fecha": "30/12/2025",
+      "descripcion": "COMPRA TARJETA 29/12/25 19:18 COMPR. 000536319057847",
+      "importe": -285172.57,
+      "saldo": 4657412.57
+    },
+    {
+      "fecha": "02/01/2026",
+      "descripcion": "COMPRA TARJETA 31/12/25 02:15 COMPR. 000536502963871",
+      "importe": -950.0,
+      "saldo": 4656462.57
+    },
+    {
+      "fecha": "02/01/2026",
+      "descripcion": "COMPRA TARJETA 30/12/25 22:08 COMPR. 000536422149793",
+      "importe": -26600.0,
+      "saldo": 4629862.57
+    },
+    {
+      "fecha": "02/01/2026",
+      "descripcion": "COMPRA TARJETA 30/12/25 21:30 COMPR. 000536421019068",
+      "importe": -29074.8,
+      "saldo": 4600787.77
+    },
+    {
+      "fecha": "02/01/2026",
+      "descripcion": "COMPRA TARJETA 30/12/25 18:15 COMPR. 000536421389035",
+      "importe": -29590.1,
+      "saldo": 4571197.67
+    },
+    {
+      "fecha": "02/01/2026",
+      "descripcion": "CDNI 30/12-C.121515 D:27166039148 N:SICARI ADRIANA MIRI",
+      "importe": -32700.0,
+      "saldo": 4538497.67
+    },
+    {
+      "fecha": "02/01/2026",
+      "descripcion": "COMPRA TARJETA 30/12/25 21:43 COMPR. 000536421139127",
+      "importe": -35280.0,
+      "saldo": 4503217.67
+    },
+    {
+      "fecha": "02/01/2026",
+      "descripcion": "EXTRACCION CAJERO 30/12/25 16:25 COMPR. 000002097000000",
+      "importe": -40000.0,
+      "saldo": 4463217.67
+    },
+    {
+      "fecha": "02/01/2026",
+      "descripcion": "COMPRA TARJETA 31/12/25 00:33 COMPR. 000536500293470",
+      "importe": -52639.0,
+      "saldo": 4410578.67
+    },
+    {
+      "fecha": "02/01/2026",
+      "descripcion": "COMPRA TARJETA 31/12/25 13:33 COMPR. 000536513244156",
+      "importe": -27329.0,
+      "saldo": 4383249.67
+    },
+    {
+      "fecha": "02/01/2026",
+      "descripcion": "COMPRA TARJETA 31/12/25 14:08 COMPR. 000536514006803",
+      "importe": -750.0,
+      "saldo": 4382499.67
+    },
+    {
+      "fecha": "02/01/2026",
+      "descripcion": "COMPRA TARJETA 31/12/25 14:12 COMPR. 000536514247449",
+      "importe": -17919.0,
+      "saldo": 4364580.67
+    },
+    {
+      "fecha": "02/01/2026",
+      "descripcion": "COMPRA TARJETA 31/12/25 14:28 COMPR. 000536514008793",
+      "importe": -700.0,
+      "saldo": 4363880.67
+    },
+    {
+      "fecha": "02/01/2026",
+      "descripcion": "PAGO CUOTA DE PRESTAMO         1987 BIYCSA",
+      "importe": -10624.42,
+      "saldo": 4353256.25
+    },
+    {
+      "fecha": "02/01/2026",
+      "descripcion": "PAGO CUOTA DE PRESTAMO         1987 BIYCSA",
+      "importe": -30346.06,
+      "saldo": 4322910.19
+    },
+    {
+      "fecha": "05/01/2026",
+      "descripcion": "TRANSF DE RODRIGUEZ/SONIA M (27220864222) VAR VARVarios",
+      "importe": 12000.0,
+      "saldo": 4334910.19
+    },
+    {
+      "fecha": "05/01/2026",
+      "descripcion": "COMPRA TARJETA 02/01/26 21:21 COMPR. 000600221953668",
+      "importe": -59946.13,
+      "saldo": 4274964.06
+    },
+    {
+      "fecha": "05/01/2026",
+      "descripcion": "COMPRA TARJETA 03/01/26 03:46 COMPR. 000600303057470",
+      "importe": -39200.0,
+      "saldo": 4235764.06
+    },
+    {
+      "fecha": "05/01/2026",
+      "descripcion": "COMPRA TARJETA 03/01/26 19:23 COMPR. 000600319754055",
+      "importe": -23574.0,
+      "saldo": 4212190.06
+    },
+    {
+      "fecha": "05/01/2026",
+      "descripcion": "COMPRA TARJETA 03/01/26 19:39 COMPR. 000600319410419",
+      "importe": -700.0,
+      "saldo": 4211490.06
+    },
+    {
+      "fecha": "05/01/2026",
+      "descripcion": "COMPRA TARJETA 03/01/26 21:20 COMPR. 000600300967306",
+      "importe": -20000.0,
+      "saldo": 4191490.06
+    },
+    {
+      "fecha": "05/01/2026",
+      "descripcion": "TRANSF DE EMER CECILIA ELIZABE (27344659996) VAR",
+      "importe": 783626.0,
+      "saldo": 4975116.06
+    },
+    {
+      "fecha": "05/01/2026",
+      "descripcion": "COMPRA TARJETA 04/01/26 16:31 COMPR. 000600416481744",
+      "importe": -23900.0,
+      "saldo": 4951216.06
+    },
+    {
+      "fecha": "05/01/2026",
+      "descripcion": "COMPRA TARJETA 04/01/26 16:34 COMPR. 000600416482261",
+      "importe": -12200.0,
+      "saldo": 4939016.06
+    },
+    {
+      "fecha": "05/01/2026",
+      "descripcion": "COMPRA TARJETA 04/01/26 14:52 COMPR. 000600417380142",
+      "importe": -104998.0,
+      "saldo": 4834018.06
+    },
+    {
+      "fecha": "05/01/2026",
+      "descripcion": "COMPRA TARJETA 04/01/26 18:18 COMPR. 000600418500988",
+      "importe": -4499.0,
+      "saldo": 4829519.06
+    },
+    {
+      "fecha": "05/01/2026",
+      "descripcion": "PAGO VISA",
+      "importe": -2975931.31,
+      "saldo": 1853587.75
+    },
+    {
+      "fecha": "05/01/2026",
+      "descripcion": "BIP DB.TR.04/01-C.446609 D:27232768113 N:PAULA BEATRIZ,",
+      "importe": -1440000.0,
+      "saldo": 413587.75
+    },
+    {
+      "fecha": "05/01/2026",
+      "descripcion": "P.SERV 05/01-COM.797286 -ENTEFJ6 -10016739723100",
+      "importe": -41930.51,
+      "saldo": 371657.24
+    },
+    {
+      "fecha": "05/01/2026",
+      "descripcion": "P.SERV 05/01-COM.301048 -AGUAS Y SA-0002864302",
+      "importe": -23200.12,
+      "saldo": 348457.12
+    },
+    {
+      "fecha": "05/01/2026",
+      "descripcion": "FONDO COMUN DE INVERSION",
+      "importe": 1500000.0,
+      "saldo": 1848457.12
+    },
+    {
+      "fecha": "05/01/2026",
+      "descripcion": "FONDO COMUN DE INVERSION",
+      "importe": 4071.56,
+      "saldo": 1852528.68
+    },
+    {
+      "fecha": "05/01/2026",
+      "descripcion": "DEVO.VISA ELE. 003 506086/9 30/12/20 21.42.38",
+      "importe": 2080.99,
+      "saldo": 1854609.67
+    },
+    {
+      "fecha": "06/01/2026",
+      "descripcion": "COMPRA TARJETA 05/01/26 22:38 COMPR. 000600522856130",
+      "importe": -32428.0,
+      "saldo": 1822181.67
+    },
+    {
+      "fecha": "06/01/2026",
+      "descripcion": "CDNI 05/01-C.338970 D:20470318733 N:SANTIAGO,CORONEL LA",
+      "importe": -50000.0,
+      "saldo": 1772181.67
+    },
+    {
+      "fecha": "07/01/2026",
+      "descripcion": "COMPRA TARJETA 06/01/26 20:31 COMPR. 000600620127537",
+      "importe": -44000.0,
+      "saldo": 1728181.67
+    },
+    {
+      "fecha": "07/01/2026",
+      "descripcion": "COMPRA TARJETA 06/01/26 20:18 COMPR. 000600620123973",
+      "importe": -46552.6,
+      "saldo": 1681629.07
+    },
+    {
+      "fecha": "07/01/2026",
+      "descripcion": "PAGO MASTERCARD",
+      "importe": -763565.33,
+      "saldo": 918063.74
+    },
+    {
+      "fecha": "08/01/2026",
+      "descripcion": "COMPRA TARJETA 07/01/26 23:06 COMPR. 000600723520111",
+      "importe": -30400.0,
+      "saldo": 887663.74
+    },
+    {
+      "fecha": "08/01/2026",
+      "descripcion": "DB.DEBIN 08/01-S.526759 C:20143132022",
+      "importe": -30000.0,
+      "saldo": 857663.74
+    },
+    {
+      "fecha": "09/01/2026",
+      "descripcion": "COMPRA TARJETA 09/01/26 00:40 COMPR. 000600900567221",
+      "importe": -750.0,
+      "saldo": 856913.74
+    },
+    {
+      "fecha": "09/01/2026",
+      "descripcion": "COMPRA TARJETA 08/01/26 23:54 COMPR. 000600823237038",
+      "importe": -44439.0,
+      "saldo": 812474.74
+    },
+    {
+      "fecha": "09/01/2026",
+      "descripcion": "COMPRA TARJETA 09/01/26 17:58 COMPR. 000600917729902",
+      "importe": -33821.51,
+      "saldo": 778653.23
+    },
+    {
+      "fecha": "09/01/2026",
+      "descripcion": "ASOC MUTUALISTA DE EM 30545959948 BCO.014 REF.",
+      "importe": 248204.16,
+      "saldo": 1026857.39
+    },
+    {
+      "fecha": "12/01/2026",
+      "descripcion": "COMPRA TARJETA 09/01/26 21:02 COMPR. 000600921081322",
+      "importe": -128970.0,
+      "saldo": 897887.39
+    },
+    {
+      "fecha": "12/01/2026",
+      "descripcion": "CDNI 10/01-C.366454 D:20470318733 N:SANTIAGO,CORONEL LA",
+      "importe": -100000.0,
+      "saldo": 797887.39
+    },
+    {
+      "fecha": "12/01/2026",
+      "descripcion": "COMPRA TARJETA 11/01/26 01:16 COMPR. 000601001501802",
+      "importe": -66500.0,
+      "saldo": 731387.39
+    },
+    {
+      "fecha": "12/01/2026",
+      "descripcion": "CR.DEBIN 10/01-S.488236 C:27344659996",
+      "importe": 23000.0,
+      "saldo": 754387.39
+    },
+    {
+      "fecha": "12/01/2026",
+      "descripcion": "COMPRA TARJETA 10/01/26 22:52 COMPR. 000601001077044",
+      "importe": -21600.0,
+      "saldo": 732787.39
+    },
+    {
+      "fecha": "12/01/2026",
+      "descripcion": "TRANSF DE RODRIGUEZ/SONIA M (27220864222) VAR VARVarios",
+      "importe": 30200.0,
+      "saldo": 762987.39
+    },
+    {
+      "fecha": "13/01/2026",
+      "descripcion": "COMPRA TARJETA 12/01/26 22:19 COMPR. 000601222950042",
+      "importe": -36831.0,
+      "saldo": 726156.39
+    },
+    {
+      "fecha": "13/01/2026",
+      "descripcion": "EXTRACCION CAJERO 12/01/26 16:45 COMPR. 000003957000000",
+      "importe": -40000.0,
+      "saldo": 686156.39
+    },
+    {
+      "fecha": "13/01/2026",
+      "descripcion": "EXTRACCION CAJERO 12/01/26 16:45 COMPR. 000003956000000",
+      "importe": -40000.0,
+      "saldo": 646156.39
+    },
+    {
+      "fecha": "13/01/2026",
+      "descripcion": "CR.DEBIN 13/01-S.785347 C:27344659996",
+      "importe": 7200.0,
+      "saldo": 653356.39
+    },
+    {
+      "fecha": "14/01/2026",
+      "descripcion": "COMPRA TARJETA 13/01/26 23:16 COMPR. 000601323264079",
+      "importe": -16350.0,
+      "saldo": 637006.39
+    },
+    {
+      "fecha": "14/01/2026",
+      "descripcion": "BIP DB.TR.14/01-C.853739 D:20315761094 N:RIZZO IGNA",
+      "importe": -248204.16,
+      "saldo": 388802.23
+    },
+    {
+      "fecha": "14/01/2026",
+      "descripcion": "BIP DB.TR.14/01-C.903213 D:23253851074 N:LEAL SILV",
+      "importe": -217178.64,
+      "saldo": 171623.59
+    },
+    {
+      "fecha": "14/01/2026",
+      "descripcion": "DB.DEBIN 14/01-S.672937 C:20143132022",
+      "importe": -30000.0,
+      "saldo": 141623.59
+    },
+    {
+      "fecha": "14/01/2026",
+      "descripcion": "COMPRA TARJETA 14/01/26 16:17 COMPR. 000601416440470",
+      "importe": -84000.0,
+      "saldo": 57623.59
+    },
+    {
+      "fecha": "15/01/2026",
+      "descripcion": "TRANSF DE CORONEL, ADRIAN RAM (20223633170) CUO",
+      "importe": 481500.0,
+      "saldo": 539123.59
+    },
+    {
+      "fecha": "15/01/2026",
+      "descripcion": "COMPRA TARJETA 14/01/26 21:47 COMPR. 000601421519072",
+      "importe": -12300.0,
+      "saldo": 526823.59
+    },
+    {
+      "fecha": "15/01/2026",
+      "descripcion": "CREDITO HABERES",
+      "importe": 1779649.17,
+      "saldo": 2306472.76
+    },
+    {
+      "fecha": "16/01/2026",
+      "descripcion": "CR.DEBIN 15/01-S.191811 C:27344659996",
+      "importe": 20000.0,
+      "saldo": 2326472.76
+    },
+    {
+      "fecha": "16/01/2026",
+      "descripcion": "TRANSF DE RODRIGUEZ/SONIA M (27220864222) VAR VARVarios",
+      "importe": 20000.0,
+      "saldo": 2346472.76
+    },
+    {
+      "fecha": "16/01/2026",
+      "descripcion": "COMPRA TARJETA 16/01/26 00:06 COMPR. 000601600805479",
+      "importe": -750.0,
+      "saldo": 2345722.76
+    },
+    {
+      "fecha": "16/01/2026",
+      "descripcion": "COMPRA TARJETA 15/01/26 23:38 COMPR. 000601523775017",
+      "importe": -18049.0,
+      "saldo": 2327673.76
+    },
+    {
+      "fecha": "16/01/2026",
+      "descripcion": "EXTRACCION CAJERO 15/01/26 16:48 COMPR. 000004830000000",
+      "importe": -40000.0,
+      "saldo": 2287673.76
+    },
+    {
+      "fecha": "16/01/2026",
+      "descripcion": "EXTRACCION CAJERO 15/01/26 16:48 COMPR. 000004831000000",
+      "importe": -40000.0,
+      "saldo": 2247673.76
+    },
+    {
+      "fecha": "16/01/2026",
+      "descripcion": "COMPRA TARJETA 15/01/26 23:30 COMPR. 000601502308888",
+      "importe": -58600.0,
+      "saldo": 2189073.76
+    },
+    {
+      "fecha": "16/01/2026",
+      "descripcion": "P.SERV 16/01-COM.002474 -ENTEFQY -030006009909",
+      "importe": -7118.12,
+      "saldo": 2181955.64
+    },
+    {
+      "fecha": "16/01/2026",
+      "descripcion": "P.SERV 16/01-COM.153129 -ENTEDM4 -0005523472",
+      "importe": -32545.81,
+      "saldo": 2149409.83
+    },
+    {
+      "fecha": "16/01/2026",
+      "descripcion": "FONDO COMUN DE INVERSION",
+      "importe": -1000000.0,
+      "saldo": 1149409.83
+    },
+    {
+      "fecha": "16/01/2026",
+      "descripcion": "FONDO COMUN DE INVERSION",
+      "importe": 0.01,
+      "saldo": 1149409.84
+    },
+    {
+      "fecha": "19/01/2026",
+      "descripcion": "COMPRA TARJETA 16/01/26 22:04 COMPR. 000601622084923",
+      "importe": -7000.0,
+      "saldo": 1142409.84
+    },
+    {
+      "fecha": "19/01/2026",
+      "descripcion": "COMPRA TARJETA 16/01/26 19:55 COMPR. 000601622108325",
+      "importe": -74008.0,
+      "saldo": 1068401.84
+    },
+    {
+      "fecha": "19/01/2026",
+      "descripcion": "COMPRA TARJETA 17/01/26 11:38 COMPR. 000601711952085",
+      "importe": -17339.0,
+      "saldo": 1051062.84
+    },
+    {
+      "fecha": "19/01/2026",
+      "descripcion": "COMPRA TARJETA 17/01/26 11:59 COMPR. 000601711118268",
+      "importe": -650.0,
+      "saldo": 1050412.84
+    },
+    {
+      "fecha": "19/01/2026",
+      "descripcion": "COMPRA TARJETA 17/01/26 15:51 COMPR. 000601715091957",
+      "importe": -18000.0,
+      "saldo": 1032412.84
+    },
+    {
+      "fecha": "19/01/2026",
+      "descripcion": "COMPRA TARJETA 17/01/26 19:59 COMPR. 000601719079426",
+      "importe": -8200.0,
+      "saldo": 1024212.84
+    },
+    {
+      "fecha": "19/01/2026",
+      "descripcion": "COMPRA TARJETA 17/01/26 17:06 COMPR. 000601720672876",
+      "importe": -44566.0,
+      "saldo": 979646.84
+    },
+    {
+      "fecha": "19/01/2026",
+      "descripcion": "COMPRA TARJETA 17/01/26 20:56 COMPR. 000601720819426",
+      "importe": -97569.23,
+      "saldo": 882077.61
+    },
+    {
+      "fecha": "19/01/2026",
+      "descripcion": "COMPRA TARJETA 18/01/26 00:09 COMPR. 000601700435160",
+      "importe": -76100.3,
+      "saldo": 805977.31
+    },
+    {
+      "fecha": "19/01/2026",
+      "descripcion": "COMPRA TARJETA 18/01/26 00:10 COMPR. 000601800025451",
+      "importe": -30969.0,
+      "saldo": 775008.31
+    },
+    {
+      "fecha": "19/01/2026",
+      "descripcion": "COMPRA TARJETA 18/01/26 01:12 COMPR. 000601801202904",
+      "importe": -800.0,
+      "saldo": 774208.31
+    },
+    {
+      "fecha": "19/01/2026",
+      "descripcion": "COMPRA TARJETA 18/01/26 22:34 COMPR. 000601822623842",
+      "importe": -35917.48,
+      "saldo": 738290.83
+    },
+    {
+      "fecha": "19/01/2026",
+      "descripcion": "CDNI 19/01-C.565468 D:20470318733 N:SANTIAGO,CORONEL LA",
+      "importe": -100000.0,
+      "saldo": 638290.83
+    },
+    {
+      "fecha": "20/01/2026",
+      "descripcion": "EXTRACCION CAJERO 19/01/26 20:09 COMPR. 000009129000000",
+      "importe": -40000.0,
+      "saldo": 598290.83
+    },
+    {
+      "fecha": "21/01/2026",
+      "descripcion": "COMPRA TARJETA 20/01/26 20:43 COMPR. 000602023619979",
+      "importe": -30000.0,
+      "saldo": 568290.83
+    },
+    {
+      "fecha": "21/01/2026",
+      "descripcion": "EXTRACCION CAJERO 20/01/26 20:58 COMPR. 000009098000000",
+      "importe": -40000.0,
+      "saldo": 528290.83
+    },
+    {
+      "fecha": "21/01/2026",
+      "descripcion": "EXTRACCION CAJERO 20/01/26 20:58 COMPR. 000009097000000",
+      "importe": -40000.0,
+      "saldo": 488290.83
+    },
+    {
+      "fecha": "21/01/2026",
+      "descripcion": "DB.DEBIN 21/01-S.572857 C:20143132022",
+      "importe": -30000.0,
+      "saldo": 458290.83
+    },
+    {
+      "fecha": "21/01/2026",
+      "descripcion": "DEVO.VISA ELE. 003 506086/9 19/01/20 21.41.07",
+      "importe": 12096.43,
+      "saldo": 470387.26
+    },
+    {
+      "fecha": "23/01/2026",
+      "descripcion": "CR.DEBIN 22/01-S.344587 C:27344659996",
+      "importe": 30000.0,
+      "saldo": 500387.26
+    },
+    {
+      "fecha": "23/01/2026",
+      "descripcion": "TRANSF DE RODRIGUEZ/SONIA M (27220864222) VAR VARVarios",
+      "importe": 20000.0,
+      "saldo": 520387.26
+    },
+    {
+      "fecha": "23/01/2026",
+      "descripcion": "EXTRACCION CAJERO 22/01/26 17:10 COMPR. 000006148000000",
+      "importe": -20000.0,
+      "saldo": 500387.26
+    },
+    {
+      "fecha": "23/01/2026",
+      "descripcion": "EXTRACCION CAJERO 22/01/26 17:09 COMPR. 000006147000000",
+      "importe": -40000.0,
+      "saldo": 460387.26
+    },
+    {
+      "fecha": "23/01/2026",
+      "descripcion": "COMPRA TARJETA 22/01/26 22:06 COMPR. 000602201899686",
+      "importe": -58600.0,
+      "saldo": 401787.26
+    },
+    {
+      "fecha": "23/01/2026",
+      "descripcion": "COMPRA TARJETA 23/01/26 14:45 COMPR. 000602317481428",
+      "importe": -121997.0,
+      "saldo": 279790.26
+    },
+    {
+      "fecha": "23/01/2026",
+      "descripcion": "COMPRA TARJETA 23/01/26 19:27 COMPR. 000602319752176",
+      "importe": -24149.89,
+      "saldo": 255640.37
+    },
+    {
+      "fecha": "23/01/2026",
+      "descripcion": "COMPRA TARJETA 23/01/26 19:28 COMPR. 000602319752496",
+      "importe": -16250.02,
+      "saldo": 239390.35
+    },
+    {
+      "fecha": "26/01/2026",
+      "descripcion": "COMPRA TARJETA 23/01/26 18:41 COMPR. 000602321602870",
+      "importe": -11900.0,
+      "saldo": 227490.35
+    },
+    {
+      "fecha": "26/01/2026",
+      "descripcion": "COMPRA TARJETA 23/01/26 22:06 COMPR. 000602322944907",
+      "importe": -16200.0,
+      "saldo": 211290.35
+    },
+    {
+      "fecha": "26/01/2026",
+      "descripcion": "DB.DEBIN 23/01-S.026352 C:20947373901",
+      "importe": -18960.0,
+      "saldo": 192330.35
+    },
+    {
+      "fecha": "26/01/2026",
+      "descripcion": "DB.DEBIN 24/01-S.945616 C:20945169045",
+      "importe": -16100.0,
+      "saldo": 176230.35
+    },
+    {
+      "fecha": "26/01/2026",
+      "descripcion": "TRANSF DE PAGANO/MARIA LAURA (27283840277) VAR 0028384027",
+      "importe": 12000.0,
+      "saldo": 188230.35
+    },
+    {
+      "fecha": "26/01/2026",
+      "descripcion": "CR.DEBIN 24/01-S.934752 C:20539497562",
+      "importe": 15000.0,
+      "saldo": 203230.35
+    },
+    {
+      "fecha": "26/01/2026",
+      "descripcion": "DB.DEBIN 25/01-S.271291 C:20450142132",
+      "importe": -50000.0,
+      "saldo": 153230.35
+    },
+    {
+      "fecha": "26/01/2026",
+      "descripcion": "COMPRA TARJETA 25/01/26 22:25 COMPR. 000602522589168",
+      "importe": -9989.0,
+      "saldo": 143241.35
+    },
+    {
+      "fecha": "26/01/2026",
+      "descripcion": "COMPRA TARJETA 25/01/26 22:38 COMPR. 000602522904447",
+      "importe": -750.0,
+      "saldo": 142491.35
+    },
+    {
+      "fecha": "26/01/2026",
+      "descripcion": "TRANSF DE MARIANA LANCELLOTTI (27251885406) VAR",
+      "importe": 30000.0,
+      "saldo": 172491.35
+    },
+    {
+      "fecha": "26/01/2026",
+      "descripcion": "BIP DB TR 26/01-C.000703905450 DES:0014-03-401405268095",
+      "importe": -60000.0,
+      "saldo": 112491.35
+    },
+    {
+      "fecha": "27/01/2026",
+      "descripcion": "TRANSF DE LANCELLOTTI/E (23240430754) VAR VARsalveRegi",
+      "importe": 15000.0,
+      "saldo": 127491.35
+    },
+    {
+      "fecha": "27/01/2026",
+      "descripcion": "COMPRA TARJETA 26/01/26 21:03 COMPR. 000602621670104",
+      "importe": -9143.79,
+      "saldo": 118347.56
+    },
+    {
+      "fecha": "27/01/2026",
+      "descripcion": "EXTRACCION CAJERO 27/01/26 16:42 COMPR. 000008664000000",
+      "importe": -40000.0,
+      "saldo": 78347.56
+    },
+    {
+      "fecha": "28/01/2026",
+      "descripcion": "CR.DEBIN 27/01-S.009991 C:27291344556",
+      "importe": 40000.0,
+      "saldo": 118347.56
+    },
+    {
+      "fecha": "28/01/2026",
+      "descripcion": "ACREDIT. INTERESES PERIODO DESDE 26-12-2025 HASTA 27- 01-2026",
+      "importe": 7616.67,
+      "saldo": 125964.23
+    },
+    {
+      "fecha": "28/01/2026",
+      "descripcion": "VENTA DE MONEDA EXTRANJERA",
+      "importe": 50940.0,
+      "saldo": 176904.23
+    },
+    {
+      "fecha": "29/01/2026",
+      "descripcion": "COMPRA TARJETA 28/01/26 21:06 COMPR. 000602821201346",
+      "importe": -18000.0,
+      "saldo": 158904.23
+    },
+    {
+      "fecha": "29/01/2026",
+      "descripcion": "COMPRA TARJETA 28/01/26 20:39 COMPR. 000602820194465",
+      "importe": -22000.0,
+      "saldo": 136904.23
+    },
+    {
+      "fecha": "29/01/2026",
+      "descripcion": "COMPRA TARJETA 29/01/26 00:37 COMPR. 000602800271694",
+      "importe": -46300.0,
+      "saldo": 90604.23
+    },
+    {
+      "fecha": "29/01/2026",
+      "descripcion": "EXTRACCION CAJERO 29/01/26 15:16 COMPR. 000007174000000",
+      "importe": -40000.0,
+      "saldo": 50604.23
+    },
+    {
+      "fecha": "30/01/2026",
+      "descripcion": "CREDITO HABERES",
+      "importe": 5579367.6,
+      "saldo": 5629971.83
+    },
+    {
+      "fecha": "30/01/2026",
+      "descripcion": "COMPRA TARJETA 30/01/26 13:17 COMPR. 000603013418945",
+      "importe": -36560.86,
+      "saldo": 5593410.97
+    },
+    {
+      "fecha": "30/01/2026",
+      "descripcion": "COMPRA TARJETA 30/01/26 13:52 COMPR. 000603013107925",
+      "importe": -800.0,
+      "saldo": 5592610.97
+    },
+    {
+      "fecha": "30/01/2026",
+      "descripcion": "PAGO VISA",
+      "importe": -471361.5,
+      "saldo": 5121249.47
+    }
+  ]
+}

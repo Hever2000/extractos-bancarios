@@ -4,34 +4,14 @@ import re
 
 from src.models.document import BBox, Document, TextBlock, Word
 from src.models.table import ColumnLane, Table
-from src.models.trace import StageResult
+from src.stages._utils import detect_lanes
 
-_DATE_PATTERN = re.compile(r"\d{2}/\d{2}/\d{4}")
-_AMOUNT_PATTERN = re.compile(r"\$\s*-?[\d.,]+")
-_REF_PATTERN = re.compile(r"\b\d{6,22}\b")
-
-
-def _detect_lanes(words: list[Word], gap_threshold: float = 8.0) -> tuple[ColumnLane, ...]:
-    if not words:
-        return ()
-
-    intervals = sorted(
-        [(w.bbox.x0, w.bbox.x1) for w in words],
-        key=lambda i: i[0],
-    )
-
-    lanes: list[ColumnLane] = []
-    cur_x0, cur_x1 = intervals[0]
-
-    for x0, x1 in intervals[1:]:
-        if x0 - cur_x1 > gap_threshold:
-            lanes.append(ColumnLane(x0=cur_x0, x1=cur_x1))
-            cur_x0, cur_x1 = x0, x1
-        else:
-            cur_x1 = max(cur_x1, x1)
-
-    lanes.append(ColumnLane(x0=cur_x0, x1=cur_x1))
-    return tuple(lanes)
+_DATE_RE = re.compile(r"^\d{2}/\d{2}/\d{4}$")
+_AMOUNT_PATTERN_FULL = re.compile(
+    r"^-?\d{1,3}(?:\.\d{3})*,\d{2}$"   # 1.000,00 (coma decimal)
+    r"|^-?\d+\.\d{2}$"                 # 21000.00 (punto decimal)
+    r"|^\$\s*-?[\d.,]+$"              # $ 1.000,00
+)
 
 
 def _word_in_lanes(word: Word, lanes: tuple[ColumnLane, ...]) -> bool:
@@ -51,30 +31,27 @@ def _block_lane_overlap(
 
 
 def _has_key_pattern(block: TextBlock) -> bool:
-    text = " ".join(w.text for w in block.words)
-    return bool(_DATE_PATTERN.search(text) or _AMOUNT_PATTERN.search(text))
+    return any(
+        _DATE_RE.match(w.text) or _AMOUNT_PATTERN_FULL.match(w.text)
+        for w in block.words
+    )
 
 
-def detect(doc: Document) -> tuple[list[Table], StageResult]:
+def detect(doc: Document) -> list[Table]:
     tables: list[Table] = []
-    total_blocks = 0
-    date_anchors = 0
 
     for page in doc.pages:
         blocks = page.blocks
-        total_blocks += len(blocks)
 
         anchor_indices: list[int] = []
         for i, block in enumerate(blocks):
-            text = " ".join(w.text for w in block.words)
-            if _DATE_PATTERN.search(text):
+            if block.words and _DATE_RE.match(block.words[0].text):
                 anchor_indices.append(i)
 
         if len(anchor_indices) < 3:
             fallback: list[int] = []
             for i, block in enumerate(blocks):
-                text = " ".join(w.text for w in block.words)
-                if _AMOUNT_PATTERN.search(text):
+                if any(_AMOUNT_PATTERN_FULL.match(w.text) for w in block.words):
                     fallback.append(i)
             if len(fallback) >= 3:
                 anchor_indices = fallback
@@ -82,7 +59,6 @@ def detect(doc: Document) -> tuple[list[Table], StageResult]:
         if len(anchor_indices) < 3:
             continue
 
-        date_anchors += len(anchor_indices)
         first_anchor = blocks[anchor_indices[0]]
         last_anchor = blocks[anchor_indices[-1]]
         table_top = first_anchor.bbox.top
@@ -93,7 +69,7 @@ def detect(doc: Document) -> tuple[list[Table], StageResult]:
             if table_top <= block.bbox.top <= table_bottom:
                 region_words.extend(block.words)
 
-        lanes = _detect_lanes(region_words)
+        lanes = detect_lanes(region_words)
         if not lanes:
             continue
 
@@ -135,16 +111,4 @@ def detect(doc: Document) -> tuple[list[Table], StageResult]:
             page_number=page.number,
         ))
 
-    confidence = min(1.0, date_anchors / 9.0) if tables else 0.0
-    warnings = () if tables else ("No se detectaron tablas en ninguna pagina",)
-
-    return tables, StageResult(
-        stage_name="table_detector",
-        confidence=confidence,
-        metrics={
-            "tables_found": len(tables),
-            "total_blocks": total_blocks,
-            "date_anchors": date_anchors,
-        },
-        warnings=warnings,
-    )
+    return tables

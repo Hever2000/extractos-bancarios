@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from enum import Enum, auto
+from typing import Literal
 
 from src.models.document import BBox, Word
 
@@ -22,7 +23,7 @@ class ColumnLane:
     header_text: str | None = None
     detected_type: ColumnType = ColumnType.UNKNOWN
     confidence: float = 0.0
-    alignment: str = "left"
+    alignment: Literal["left", "right", "center"] = "left"
 
 
 @dataclass(frozen=True)

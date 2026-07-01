@@ -2,7 +2,11 @@
 
 ## Design Document — 2026-06-30
 
-## Status: Draft
+## Status: Historical Reference
+
+> **Note**: This document describes the original design. The implementation has evolved:
+> `StageResult` has been removed (no stage returns tracing data), and the pipeline
+> returns only the transformed result directly.
 
 ---
 

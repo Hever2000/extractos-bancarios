@@ -4,7 +4,6 @@ import re
 
 from src.models.document import Document, Page, TextBlock
 from src.models.table import Table
-from src.models.trace import StageResult
 
 _FOOTER_PATTERNS = re.compile(
     r"^(Fecha de descarga:|Operador:|Empresa:|"
@@ -19,9 +18,8 @@ def _is_footer_block(block: TextBlock) -> bool:
     return bool(_FOOTER_PATTERNS.search(text))
 
 
-def filter_footers(doc: Document, tables: list[Table]) -> tuple[Document, StageResult]:
+def filter_footers(doc: Document, tables: list[Table]) -> Document:
     table_boxes = {t.page_number: t.bbox for t in tables if t.bbox is not None}
-    removed = 0
     pages: list[Page] = []
 
     for page in doc.pages:
@@ -33,7 +31,7 @@ def filter_footers(doc: Document, tables: list[Table]) -> tuple[Document, StageR
         kept: list[TextBlock] = []
         for block in page.blocks:
             if block.bbox.top > table_bbox.bottom and _is_footer_block(block):
-                removed += 1
+                pass
             else:
                 kept.append(block)
 
@@ -45,9 +43,4 @@ def filter_footers(doc: Document, tables: list[Table]) -> tuple[Document, StageR
             blocks=tuple(kept),
         ))
 
-    return Document(pages=tuple(pages)), StageResult(
-        stage_name="footer_detector",
-        confidence=1.0 if removed > 0 else 0.5,
-        metrics={"footers_removed": removed},
-        warnings=(),
-    )
+    return Document(pages=tuple(pages))

@@ -1,3 +1,3 @@
-from src.serializers.json import StatementEncoder, serialize_statement
+from src.serializers.json import serialize_statement
 
-__all__ = ["serialize_statement", "StatementEncoder"]
+__all__ = ["serialize_statement"]

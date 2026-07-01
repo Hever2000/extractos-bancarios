@@ -1,0 +1,29 @@
+services:
+  lambda:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: extractos-bancarios:latest
+    ports:
+      - "9000:8080"
+    environment:
+      LOG_LEVEL: DEBUG
+      PIPELINE_STRICT: "false"
+      DEFAULT_ENCODING: utf-8
+    volumes:
+      - ./tests/samples:/samples
+
+  test:
+    image: extractos-bancarios:latest
+    entrypoint: ["sh", "-c", "pip install -e '.[dev]' && python -m pytest tests/ -v"]
+    environment:
+      LOG_LEVEL: DEBUG
+      PIPELINE_STRICT: "false"
+
+  lint:
+    image: extractos-bancarios:latest
+    entrypoint: ["sh", "-c", "pip install -e '.[dev]' && ruff check src/ tests/"]
+
+  typecheck:
+    image: extractos-bancarios:latest
+    entrypoint: ["sh", "-c", "pip install -e '.[dev]' && mypy src/"]

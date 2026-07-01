@@ -21,7 +21,7 @@ Orden: `make lint && make typecheck && make test`.
 Pipeline lineal (Pipes & Filters). Cada etapa es función pura:
 
 ```
-PDF bytes → extract → normalize → filter → detect_bank → parse → normalize_amounts → validate → serialize
+PDF bytes → extract → detect_bank → stages/ (universal engine) → normalize_amounts → validate → serialize
 ```
 
 Entrypoint: `src/pipeline.py:process_statement()`. Lambda handler en `src/main.py:handler()`.
@@ -31,12 +31,9 @@ Modelos `frozen=True` (dataclasses inmutables). `Decimal` para montos (nunca `fl
 
 ## Bancos
 
-- **Macro**: formato rígido 1 línea por tx. Regex: `FECHA ref1 ref2 DESCRIPCIÓN $ importe $ saldo`
-- **Provincia**: descripciones multi-línea mergeadas con state machine. Regex: `FECHA DESCRIPCIÓN importe referencia saldo`
-- **Nación**: descripción en línea separada de la numérica. **Algoritmo frágil**: array indexado paralelo (`desc_lines[i]`).
-- **Galicia**: detectable pero **sin parser**. `ParserFactory` lanza `ValueError`.
+- **Macro**, **Provincia**, **Nación**, **Galicia**: detectables por texto/CBU. Todos usan el **motor universal** (`stages/`), no hay parsers específicos por banco.
 
-Para agregar banco: `BankId` enum → registros en `detectors/bank.py` → parser implementando `BankParser` Protocol → `filters.py` (si extra) → `ParserFactory._create()`. Ver `docs/adding-new-banks.md`.
+Para agregar banco: `BankId` enum → registros en `detectors/bank.py` → (opcional) hints/patrones extra en stages. Ver `docs/adding-new-banks.md`.
 
 Detección por scoring: texto (+30 c/u), filename (+20), prefijo CBU (+50). Umbral mínimo 30.
 
@@ -50,10 +47,9 @@ Detección por scoring: texto (+30 c/u), filename (+20), prefijo CBU (+50). Umbr
 
 ## Testing
 
-- Unit tests por módulo en `tests/`. Fixtures compartidos en `conftest.py` (`FIXTURES` path).
-- Datos de prueba por banco en `tests/fixtures/{banco}/sample.txt` + `sample.json` (golden).
-- **Golden tests**: si no existe golden file, lo crean del output actual y hacen `pytest.skip()`. Revisar antes de dar por bueno.
-- `test_pipeline.py` usa PDF real con `pytest.raises` (no hay fixture PDF sample).
+- Unit tests por módulo en `tests/`. Datos de prueba inline o en `tests/samples/` para PDFs.
+- **Golden tests**: procesan un PDF real y comparan output contra golden JSON. Si no existe golden, lo crean y fallan con `pytest.skip()`.
+- `test_pipeline.py` usa PDF real con `pytest.raises` o PDFs sample.
 
 ## Edge cases conocidos
 
@@ -61,7 +57,6 @@ Detección por scoring: texto (+30 c/u), filename (+20), prefijo CBU (+50). Umbr
 - Negativos aceptan `-prefijo`, `sufijo-`, y `(parentheses)`
 - Importe sin `$` se acepta
 - `normalize_amount(None)` y `normalize_amount("")` retornan `Amount.zero()`
-- Nación: si falta línea descripción, usa `"S/N"` como fallback
 - Si no detecta banco o no hay transacciones, igual retorna JSON 200 con `aviso`
 
 ## Infraestructura
@@ -72,7 +67,6 @@ Env vars: `LOG_LEVEL`, `PIPELINE_STRICT`, `DEFAULT_ENCODING`.
 
 ## Gotchas
 
-- `_sort_key` se importa de `src.parsers.macro` y lo usan todos los parsers
 - `validate_statement()` retorna un **nuevo** `Statement` con warnings agregados (inmutable)
 - `serialize_statement()` convierte Decimal a float en JSON. `Amount` serializado como `signed_value`
 - `make clean` usa `find` con `-exec rm` — no funciona en Windows nativo

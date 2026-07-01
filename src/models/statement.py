@@ -21,7 +21,7 @@ class Amount:
 
     @classmethod
     def zero(cls) -> Amount:
-        return cls(value=Decimal("0"), sign=Sign(0))
+        return cls(value=Decimal("0"), sign=Sign(1))
 
     @classmethod
     def positive(cls, value: Decimal) -> Amount:

@@ -2,23 +2,14 @@ from __future__ import annotations
 
 from src.models.canonical import NormalizedRow
 from src.models.table import ColumnType, MergedTable
-from src.models.trace import StageResult
 
 
-def map_columns(merged: MergedTable) -> tuple[list[NormalizedRow], StageResult]:
+def map_columns(merged: MergedTable) -> list[NormalizedRow]:
     if not merged.merged_rows:
-        return [], StageResult(
-            stage_name="column_mapper",
-            confidence=0.0,
-            metrics={"mapped_rows": 0, "unmapped_columns": 0},
-            warnings=("No merged rows to map",),
-        )
+        return []
 
     rows: list[NormalizedRow] = []
     prev_date: str | None = None
-    unmapped = sum(
-        1 for lane in merged.lanes if lane.detected_type == ColumnType.UNKNOWN
-    )
 
     for mrow in merged.merged_rows:
         cells_by_lane: dict[int, str] = {}
@@ -57,6 +48,14 @@ def map_columns(merged: MergedTable) -> tuple[list[NormalizedRow], StageResult]:
         if date_val is None and amount_val is not None:
             date_val = prev_date
 
+        if not desc_parts:
+            for i, lane in enumerate(merged.lanes):
+                if lane.detected_type == ColumnType.UNKNOWN:
+                    text = cells_by_lane.get(i, "")
+                    if text.strip():
+                        desc_parts.append(text.strip())
+                        break
+
         prev_date = date_val
 
         rows.append(NormalizedRow(
@@ -67,12 +66,4 @@ def map_columns(merged: MergedTable) -> tuple[list[NormalizedRow], StageResult]:
             metadata=metadata,
         ))
 
-    return rows, StageResult(
-        stage_name="column_mapper",
-        confidence=min(1.0, len(rows) / max(len(merged.merged_rows), 1)),
-        metrics={
-            "mapped_rows": len(rows),
-            "unmapped_columns": unmapped,
-        },
-        warnings=(),
-    )
+    return rows

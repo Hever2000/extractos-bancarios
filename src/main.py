@@ -68,10 +68,10 @@ def handler(event: dict[str, Any], context: object | None = None) -> dict[str, A
 
     except NotImplementedError:
         raise
-    except Exception as e:
+    except Exception:
         log.exception("Pipeline failed")
         return {
             "statusCode": 500,
-            "body": json.dumps({"error": str(e)}),
+            "body": json.dumps({"error": "internal_error"}),
             "headers": {"Content-Type": "application/json"},
         }

@@ -2,17 +2,11 @@ from __future__ import annotations
 
 from src.models.document import BBox, Word
 from src.models.table import Cell, ColumnType, Row, Table
-from src.models.trace import StageResult
 
 
-def extract(table: Table) -> tuple[Table, StageResult]:
+def extract(table: Table) -> Table:
     if not table.lanes or not table.raw_words:
-        return table, StageResult(
-            stage_name="row_extractor",
-            confidence=0.0,
-            metrics={"total_rows": 0, "discarded_rows": 0},
-            warnings=("No lanes or words to extract rows from",),
-        )
+        return table
 
     sorted_words = sorted(table.raw_words, key=lambda w: (w.bbox.top, w.bbox.x0))
     lines: list[list[Word]] = []
@@ -28,7 +22,6 @@ def extract(table: Table) -> tuple[Table, StageResult]:
         lines.append(current_line)
 
     rows: list[Row] = []
-    discarded = 0
 
     for line_words in lines:
         lane_map: dict[int, list[Word]] = {}
@@ -40,7 +33,6 @@ def extract(table: Table) -> tuple[Table, StageResult]:
                     break
 
         if not lane_map:
-            discarded += 1
             continue
 
         cells: list[Cell] = []
@@ -54,12 +46,12 @@ def extract(table: Table) -> tuple[Table, StageResult]:
             )
             cells.append(Cell(text=text, lane_index=lane_idx, bbox=bbox))
 
-        first_lane_type = table.lanes[0].detected_type
-        has_first_lane_content = any(c.lane_index == 0 for c in cells)
-        is_cont = (
-            first_lane_type == ColumnType.DATE
-            and not has_first_lane_content
-        )
+        date_lanes = [
+            i for i, lane in enumerate(table.lanes)
+            if lane.detected_type == ColumnType.DATE
+        ]
+        has_date_content = any(c.lane_index in date_lanes for c in cells)
+        is_cont = bool(date_lanes) and not has_date_content
 
         row_bbox = BBox(
             x0=min(c.bbox.x0 for c in cells),
@@ -75,21 +67,10 @@ def extract(table: Table) -> tuple[Table, StageResult]:
             page_number=table.page_number,
         ))
 
-    updated = Table(
+    return Table(
         lanes=table.lanes,
         rows=tuple(rows),
         raw_words=table.raw_words,
         bbox=table.bbox,
         page_number=table.page_number,
-    )
-
-    return updated, StageResult(
-        stage_name="row_extractor",
-        confidence=1.0 if rows else 0.0,
-        metrics={
-            "total_rows": len(rows),
-            "valid_rows": len(rows),
-            "discarded_rows": discarded,
-        },
-        warnings=("No rows extracted",) if not rows else (),
     )
