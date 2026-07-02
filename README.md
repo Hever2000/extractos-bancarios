@@ -1,10 +1,20 @@
-# extractos-bancarios
+# 📊 Extractos Bancarios
 
-Extrae movimientos de extractos bancarios argentinos en PDF y los convierte a JSON estructurado.
+[![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
 
-Diseñado para AWS Lambda. Procesa cualquier extracto con estructura tabular sin importar el banco.
+Servicio de extracción de movimientos de extractos bancarios argentinos en PDF a JSON estructurado. Diseñado para **AWS Lambda** con arquitectura de funciones puras y pipeline declarativo.
 
-## Flujo
+---
+
+## ¿Por qué existe esto?
+
+En Argentina, cada banco emite extractos en PDF con formatos propietarios. Este servicio unifica la extracción de datos en un modelo JSON único, eliminando la necesidad de escribir parsers específicos por banco.
+
+**Caso de uso principal:** AWS Lambda que recibe un PDF por API Gateway y devuelve el historial de transacciones estructurado para alimentar sistemas de conciliación contable o scoring crediticio.
+
+---
+
+## Flujo de Procesamiento
 
 ```
 PDF → PdfplumberProcessor → Document (words con coordenadas)
@@ -19,7 +29,43 @@ PDF → PdfplumberProcessor → Document (words con coordenadas)
   → validate → serialize → JSON
 ```
 
-Cada etapa es una función pura. Datos inmutables en todo el pipeline.
+---
+
+## Input / Output Contract
+
+### Input (PDF)
+
+- **Formato:** Cualquier extracto bancario argentino con estructura tabular.
+- **Restricciones:**
+  - Máximo 50 páginas (configurable vía `MAX_PAGES`).
+  - PDF digital con texto seleccionable (no escaneado).
+
+### Output (JSON)
+
+El pipeline devuelve un json con esta estructura:
+
+```json
+{
+  "banco": "Banco Macro",
+  "fecha_desde": "01/12/2025",
+  "fecha_hasta": "07/01/2026",
+  "detalle": [
+    {
+      "fecha": "01/12/2025",
+      "descripcion": "TRANSF 23132999619 VAR",
+      "importe": 542000.0,
+      "saldo": 2548968.83
+    },
+    {
+      "fecha": "01/12/2025",
+      "descripcion": "TPUSH GRISELDA VILLA",
+      "importe": 12000.0,
+      "saldo": 2006968.83
+    }
+  ]
+ }
+
+```
 
 ## Estructura
 
@@ -37,46 +83,24 @@ src/
 └── __main__.py       # CLI
 ```
 
-## Uso
+## Setup
 
 ```sh
+git clone https://github.com/Hever2000/extractos-bancarios.git
+cd extractos-bancarios
+
 pip install -e ".[dev]"
 
-# CLI
 python -m src extracto.pdf
 python -m src extracto.pdf --strict
 
-# Tests
 make test
 make lint
 make typecheck
 ```
-
-## Comandos
-
-| Comando | Descripción |
-|---------|-------------|
-| `make install` | Instalar dependencias |
-| `make test` | Ejecutar tests |
-| `make lint` | Ruff (linter + formateo) |
-| `make typecheck` | MyPy strict |
-| `make test-coverage` | Pytest con cobertura |
-| `make clean` | Limpiar cachés |
 
 ## Requisitos
 
 - Python 3.12+
 - Dependencias: solo `pdfplumber` en producción
 
-## CI/CD
-
-GitHub Actions corre lint, typecheck y tests en cada PR/push a main.
-
-## Despliegue (AWS Lambda)
-
-El proyecto está preparado para Lambda mediante Docker. Ver `Dockerfile` y `docker-compose.yml`.
-
-```sh
-make docker-build
-make docker-test
-```
