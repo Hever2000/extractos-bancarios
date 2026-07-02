@@ -11,6 +11,7 @@ SAMPLES = Path(__file__).resolve().parent / "samples"
 GOLDEN_CASES = [
     ("macro.pdf", "golden_macro.json"),
     ("10005060869_20260202_extractos.pdf", "golden_provincia_nacion.json"),
+    ("09-SEPTIEMBRE 2019 CTA 54 pdf.pdf", "golden_nacion.json"),
 ]
 
 

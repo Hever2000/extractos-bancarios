@@ -1,0 +1,187 @@
+{
+  "banco": "Banco Nacion",
+  "fecha_desde": "12/09/2019",
+  "fecha_hasta": "27/09/2019",
+  "detalle": [
+    {
+      "fecha": "12/09/2019",
+      "descripcion": "EMIS TRANSFERENCIA/GIRO",
+      "importe": -160574.12,
+      "saldo": null
+    },
+    {
+      "fecha": "12/09/2019",
+      "descripcion": "COMI TRANSFERENCIA",
+      "importe": -642.3,
+      "saldo": null
+    },
+    {
+      "fecha": "12/09/2019",
+      "descripcion": "IVA COMISION GT",
+      "importe": -134.88,
+      "saldo": null
+    },
+    {
+      "fecha": "12/09/2019",
+      "descripcion": "GRAVAMEN LEY 25413 S/DEB",
+      "importe": -401.44,
+      "saldo": null
+    },
+    {
+      "fecha": "12/09/2019",
+      "descripcion": "GRAVAMEN LEY 25413 S/DEB",
+      "importe": -1.61,
+      "saldo": null
+    },
+    {
+      "fecha": "12/09/2019",
+      "descripcion": "GRAVAMEN LEY 25413 S/DEB",
+      "importe": -0.34,
+      "saldo": 806467.96
+    },
+    {
+      "fecha": "17/09/2019",
+      "descripcion": "TRANS33693450239IMP A",
+      "importe": 19581732.6,
+      "saldo": null
+    },
+    {
+      "fecha": "17/09/2019",
+      "descripcion": "DEVOLVER S GRAVAMEN LEY 25413 S/CRED",
+      "importe": -48954.33,
+      "saldo": 20339246.23
+    },
+    {
+      "fecha": "23/09/2019",
+      "descripcion": "EMIS TRANSFERENCIA/GIRO",
+      "importe": -19635831.14,
+      "saldo": null
+    },
+    {
+      "fecha": "23/09/2019",
+      "descripcion": "COMI TRANSFERENCIA",
+      "importe": -75440.25,
+      "saldo": null
+    },
+    {
+      "fecha": "23/09/2019",
+      "descripcion": "IVA COMISION GT",
+      "importe": -15842.02,
+      "saldo": null
+    },
+    {
+      "fecha": "23/09/2019",
+      "descripcion": "DEVOLUC TF C/REINT L25413",
+      "importe": 65639.4,
+      "saldo": null
+    },
+    {
+      "fecha": "23/09/2019",
+      "descripcion": "DEVOLUC TF C/REINT L25413",
+      "importe": 237.44,
+      "saldo": null
+    },
+    {
+      "fecha": "23/09/2019",
+      "descripcion": "DEVOLUC TF C/REINT L25413",
+      "importe": 9363.2,
+      "saldo": null
+    },
+    {
+      "fecha": "23/09/2019",
+      "descripcion": "DEVOLUC TF C/REINT L25413",
+      "importe": 33342.4,
+      "saldo": null
+    },
+    {
+      "fecha": "23/09/2019",
+      "descripcion": "DEVOLUC TF C/REINT L25413",
+      "importe": 4681.6,
+      "saldo": null
+    },
+    {
+      "fecha": "23/09/2019",
+      "descripcion": "DEVOLUC TF C/REINT L25413",
+      "importe": 4180.0,
+      "saldo": null
+    },
+    {
+      "fecha": "23/09/2019",
+      "descripcion": "GRAVAMEN LEY 25413 S/DEB",
+      "importe": -49089.58,
+      "saldo": null
+    },
+    {
+      "fecha": "23/09/2019",
+      "descripcion": "GRAVAMEN LEY 25413 S/DEB",
+      "importe": -188.6,
+      "saldo": null
+    },
+    {
+      "fecha": "23/09/2019",
+      "descripcion": "GRAVAMEN LEY 25413 S/DEB",
+      "importe": -39.61,
+      "saldo": null
+    },
+    {
+      "fecha": "23/09/2019",
+      "descripcion": "REINTEGRO LEY 25413/DEB",
+      "importe": 164.1,
+      "saldo": null
+    },
+    {
+      "fecha": "23/09/2019",
+      "descripcion": "REINTEGRO LEY 25413/DEB",
+      "importe": 0.59,
+      "saldo": null
+    },
+    {
+      "fecha": "23/09/2019",
+      "descripcion": "REINTEGRO LEY 25413/DEB",
+      "importe": 23.41,
+      "saldo": null
+    },
+    {
+      "fecha": "23/09/2019",
+      "descripcion": "REINTEGRO LEY 25413/DEB",
+      "importe": 83.36,
+      "saldo": null
+    },
+    {
+      "fecha": "23/09/2019",
+      "descripcion": "REINTEGRO LEY 25413/DEB",
+      "importe": 11.7,
+      "saldo": null
+    },
+    {
+      "fecha": "23/09/2019",
+      "descripcion": "REINTEGRO LEY 25413/DEB",
+      "importe": 10.45,
+      "saldo": 680552.68
+    },
+    {
+      "fecha": "27/09/2019",
+      "descripcion": "COMIS.COMPENSACION ATEN C",
+      "importe": -1012.2,
+      "saldo": null
+    },
+    {
+      "fecha": "27/09/2019",
+      "descripcion": "I.V.A. BASE",
+      "importe": -212.56,
+      "saldo": null
+    },
+    {
+      "fecha": "27/09/2019",
+      "descripcion": "GRAVAMEN LEY 25413 S/DEB",
+      "importe": -2.53,
+      "saldo": null
+    },
+    {
+      "fecha": "27/09/2019",
+      "descripcion": "GRAVAMEN LEY 25413 S/DEB",
+      "importe": -0.53,
+      "saldo": 679324.86
+    }
+  ]
+}

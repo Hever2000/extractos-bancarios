@@ -41,6 +41,4 @@ def serialize_statement(stmt: Statement, indent: int | None = None) -> str:
     }
     if stmt.metadata:
         data["metadata"] = stmt.metadata
-    if stmt.warnings:
-        data["warnings"] = list(stmt.warnings)
     return json.dumps(data, indent=indent, ensure_ascii=False)

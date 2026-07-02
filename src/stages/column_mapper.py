@@ -1,7 +1,13 @@
 from __future__ import annotations
 
+import re
+
 from src.models.canonical import NormalizedRow
 from src.models.table import ColumnType, MergedTable
+
+
+def _normalize_whitespace(text: str) -> str:
+    return re.sub(r"\s+", " ", text).strip()
 
 
 def map_columns(merged: MergedTable) -> list[NormalizedRow]:
@@ -21,7 +27,7 @@ def map_columns(merged: MergedTable) -> list[NormalizedRow]:
                 lane = merged.lanes[c.lane_index]
                 if lane.detected_type == ColumnType.DESCRIPTION:
                     existing = cells_by_lane.get(c.lane_index, "")
-                    cells_by_lane[c.lane_index] = (existing + " " + c.text).strip()
+                    cells_by_lane[c.lane_index] = _normalize_whitespace(existing + " " + c.text)
 
         date_val: str | None = None
         desc_parts: list[str] = []
@@ -60,7 +66,7 @@ def map_columns(merged: MergedTable) -> list[NormalizedRow]:
 
         rows.append(NormalizedRow(
             date=date_val,
-            description=" ".join(desc_parts).strip(),
+            description=_normalize_whitespace(" ".join(desc_parts)),
             amount=amount_val,
             balance=balance_val,
             metadata=metadata,

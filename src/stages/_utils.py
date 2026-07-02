@@ -4,7 +4,7 @@ from src.models.document import Word
 from src.models.table import ColumnLane
 
 
-def detect_lanes(words: list[Word], gap_threshold: float = 8.0) -> tuple[ColumnLane, ...]:
+def detect_lanes(words: list[Word], gap_threshold: float = 3.5) -> tuple[ColumnLane, ...]:
     if not words:
         return ()
 
