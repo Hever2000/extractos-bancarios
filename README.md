@@ -104,3 +104,7 @@ make typecheck
 - Python 3.12+
 - Dependencias: solo `pdfplumber` en producción
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 26e950a99d573231b66e583ccae44ae220ee8fbc
