@@ -9,9 +9,11 @@ from src.normalizers.amount import normalize_amount
 
 def build(rows: list[NormalizedRow]) -> list[Transaction]:
     transactions: list[Transaction] = []
+    skipped = 0
 
     for row in rows:
         if row.date is None:
+            skipped += 1
             continue
 
         parts = row.date.split("/")

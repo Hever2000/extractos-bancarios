@@ -48,6 +48,7 @@ def detect(doc: Document) -> list[Table]:
             if block.words and _DATE_RE.match(block.words[0].text):
                 anchor_indices.append(i)
 
+
         if len(anchor_indices) < 3:
             fallback: list[int] = []
             for i, block in enumerate(blocks):
@@ -55,7 +56,6 @@ def detect(doc: Document) -> list[Table]:
                     fallback.append(i)
             if len(fallback) >= 3:
                 anchor_indices = fallback
-
         if len(anchor_indices) < 3:
             continue
 
@@ -70,8 +70,6 @@ def detect(doc: Document) -> list[Table]:
                 region_words.extend(block.words)
 
         lanes = detect_lanes(region_words)
-        if not lanes:
-            continue
 
         table_words: list[Word] = []
         table_blocks: list[TextBlock] = []
@@ -110,5 +108,4 @@ def detect(doc: Document) -> list[Table]:
             bbox=BBox(x0=x0, x1=x1, top=top, bottom=bottom),
             page_number=page.number,
         ))
-
     return tables

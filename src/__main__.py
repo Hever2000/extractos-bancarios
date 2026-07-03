@@ -16,6 +16,7 @@ def main() -> None:
         pdf_bytes = f.read()
 
     result = process_statement(pdf_bytes, filename=args.pdf, strict=args.strict)
+    sys.stdout.flush()
     sys.stdout.buffer.write(result.encode("utf-8"))
     sys.stdout.buffer.write(b"\n")
 

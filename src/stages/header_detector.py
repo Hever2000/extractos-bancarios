@@ -29,10 +29,11 @@ def filter_headers(doc: Document, tables: list[Table]) -> Document:
             pages.append(page)
             continue
 
+        removed: list[str] = []
         kept: list[TextBlock] = []
         for block in page.blocks:
             if block.bbox.bottom < table_bbox.top and _is_header_block(block):
-                pass
+                removed.append(" ".join(w.text for w in block.words[:3]))
             else:
                 kept.append(block)
 

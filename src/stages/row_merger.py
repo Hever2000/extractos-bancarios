@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 from src.models.table import ColumnType, MergedRow, MergedTable, Row, Table
 
@@ -9,6 +9,7 @@ def merge(table: Table) -> MergedTable:
 
     merged: list[MergedRow] = []
     pending: list[Row] = []
+    merge_count = 0
 
     for row in table.rows:
         if row.is_continuation:
@@ -25,6 +26,7 @@ def merge(table: Table) -> MergedTable:
                     primary_line=last.primary_line,
                     continuation_lines=last.continuation_lines + tuple(pending),
                 ))
+                merge_count += 1
                 pending = []
             merged.append(MergedRow(primary_line=row))
 
@@ -34,6 +36,7 @@ def merge(table: Table) -> MergedTable:
             primary_line=last.primary_line,
             continuation_lines=last.continuation_lines + tuple(pending),
         ))
+        merge_count += 1
 
     return MergedTable(
         lanes=table.lanes,
