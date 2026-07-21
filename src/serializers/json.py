@@ -35,10 +35,11 @@ def _tx_to_dict(tx: Transaction) -> dict[str, Any]:
 def serialize_statement(stmt: Statement, indent: int | None = None) -> str:
     data: dict[str, Any] = {
         "banco": stmt.bank.name,
+        "cbu": stmt.cbu,
+        "cuenta": stmt.account,
+        "tipo": stmt.account_type,
         "fecha_desde": stmt.date_from.isoformat() if stmt.date_from else None,
         "fecha_hasta": stmt.date_to.isoformat() if stmt.date_to else None,
         "detalle": [_tx_to_dict(tx) for tx in stmt.transactions],
     }
-    if stmt.metadata:
-        data["metadata"] = stmt.metadata
     return json.dumps(data, indent=indent, ensure_ascii=False)

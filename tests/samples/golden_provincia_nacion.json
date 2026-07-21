@@ -1,5 +1,8 @@
 {
   "banco": "Banco Provincia",
+  "cbu": null,
+  "cuenta": null,
+  "tipo": null,
   "fecha_desde": "2025-10-31",
   "fecha_hasta": "2026-01-30",
   "detalle": [

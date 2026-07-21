@@ -5,6 +5,7 @@ import logging
 from typing import Any
 
 from src.detectors.bank import detect_bank
+from src.extractors.metadata import extract_statement_metadata
 from src.models.errors import ExtractError
 from src.models.statement import Statement
 from src.processors.pdfplumber_impl import PdfplumberProcessor
@@ -72,15 +73,19 @@ def process_statement(
     doc = block_builder.build(doc)
     tables = table_detector.detect(doc)
 
+    stmt_metadata = extract_statement_metadata(doc, tables, detection.bank)
+
     if not tables:
         print("Sin tablas detectadas - sin movimientos")
         print()
         stmt = Statement(
             bank=detection.bank,
+            cbu=stmt_metadata.cbu,
+            account=stmt_metadata.account,
+            account_type=stmt_metadata.account_type,
             transactions=(),
             date_from=None,
             date_to=None,
-            warnings=("No se encontraron movimientos.",),
         )
         stmt = validate_statement(stmt)
         json_result = serialize_statement(stmt, indent=2)
@@ -115,14 +120,19 @@ def process_statement(
     if not transactions_raw:
         stmt = Statement(
             bank=detection.bank,
+            cbu=stmt_metadata.cbu,
+            account=stmt_metadata.account,
+            account_type=stmt_metadata.account_type,
             transactions=(),
             date_from=None,
             date_to=None,
-            warnings=("No se encontraron movimientos.",),
         )
     else:
         stmt = Statement(
             bank=detection.bank,
+            cbu=stmt_metadata.cbu,
+            account=stmt_metadata.account,
+            account_type=stmt_metadata.account_type,
             transactions=tuple(transactions_raw),
             date_from=transactions_raw[0].date,
             date_to=transactions_raw[-1].date,

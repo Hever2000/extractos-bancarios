@@ -43,14 +43,13 @@ def run_mutated_pipeline(doc: Document, bank: Bank) -> MutatedResult:
                 transactions=(),
                 date_from=None,
                 date_to=None,
-                warnings=("No se encontraron movimientos.",),
             )
             stmt = validate_statement(stmt)
             return MutatedResult(
                 statement=stmt,
                 transactions_count=0,
                 tables_found=0,
-                warnings=stmt.warnings,
+                warnings=(),
             )
 
         doc = header_detector.filter_headers(doc, tables)
@@ -77,7 +76,6 @@ def run_mutated_pipeline(doc: Document, bank: Bank) -> MutatedResult:
                 transactions=(),
                 date_from=None,
                 date_to=None,
-                warnings=("No se encontraron movimientos.",),
             )
         else:
             stmt = Statement(
@@ -92,7 +90,7 @@ def run_mutated_pipeline(doc: Document, bank: Bank) -> MutatedResult:
             statement=stmt,
             transactions_count=len(transactions_raw),
             tables_found=len(tables),
-            warnings=stmt.warnings,
+            warnings=(),
         )
 
     except Exception as e:
@@ -102,7 +100,6 @@ def run_mutated_pipeline(doc: Document, bank: Bank) -> MutatedResult:
                 transactions=(),
                 date_from=None,
                 date_to=None,
-                warnings=(f"Pipeline error: {e!s}",),
             ),
             transactions_count=0,
             tables_found=0,

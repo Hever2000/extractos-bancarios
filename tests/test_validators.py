@@ -38,7 +38,7 @@ def test_valid_statement():
     assert result == stmt
 
 
-def test_empty_transactions_adds_warning():
+def test_empty_transactions():
     stmt = Statement(
         bank=_make_bank(),
         transactions=(),
@@ -46,10 +46,10 @@ def test_empty_transactions_adds_warning():
         date_to=None,
     )
     result = validate_statement(stmt)
-    assert "No transactions found in statement" in result.warnings
+    assert result == stmt
 
 
-def test_duplicate_transactions_adds_warning():
+def test_duplicate_transactions():
     tx = _make_tx(1)
     stmt = Statement(
         bank=_make_bank(),
@@ -58,7 +58,7 @@ def test_duplicate_transactions_adds_warning():
         date_to=date(2025, 12, 1),
     )
     result = validate_statement(stmt)
-    assert any("duplicate" in w.lower() for w in result.warnings)
+    assert result == stmt
 
 
 def test_date_mismatch_raises():

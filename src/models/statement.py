@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from datetime import date
 from decimal import Decimal
 from typing import NewType
@@ -43,8 +43,9 @@ class Transaction:
 @dataclass(frozen=True)
 class Statement:
     bank: Bank
-    transactions: tuple[Transaction, ...]
-    date_from: date | None
-    date_to: date | None
-    metadata: dict[str, str] = field(default_factory=dict)
-    warnings: tuple[str, ...] = ()
+    cbu: str | None = None
+    account: str | None = None
+    account_type: str | None = None
+    date_from: date | None = None
+    date_to: date | None = None
+    transactions: tuple[Transaction, ...] = ()

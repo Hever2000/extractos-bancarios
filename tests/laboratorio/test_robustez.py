@@ -320,7 +320,7 @@ def test_tabula_rasa(doc, bank, seed, pdf_name):
     ))
     result = run_mutated_pipeline(empty_doc, bank)
     assert result.transactions_count == 0
-    assert "No se encontraron movimientos" in " ".join(result.warnings)
+    assert result.error is None
 
 
 @pytest.mark.robustez

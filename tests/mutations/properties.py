@@ -79,10 +79,6 @@ def _prop_amount_not_zero_if_balance_changes(stmt: Statement) -> bool:
     return True
 
 
-def _prop_warnings_are_strings(stmt: Statement) -> bool:
-    return all(isinstance(w, str) for w in stmt.warnings)
-
-
 def _prop_statement_has_bank(stmt: Statement) -> bool:
     return stmt.bank is not None
 
@@ -147,8 +143,6 @@ ALL_PROPERTIES: tuple[MutationProperty, ...] = (
                      _prop_date_from_before_to),
     MutationProperty("sorted_by_date", "Transacciones ordenadas por fecha",
                      _prop_sorted_by_date),
-    MutationProperty("warnings_are_strings", "Warnings son strings",
-                     _prop_warnings_are_strings),
     MutationProperty("statement_has_bank", "Statement tiene banco asignado",
                      _prop_statement_has_bank),
     MutationProperty("no_nan_inf", "No hay NaN o Infinity en importes",
