@@ -13,7 +13,7 @@ class StatementEncoder(json.JSONEncoder):
         if isinstance(o, Decimal):
             return float(o)
         if isinstance(o, date):
-            return o.strftime("%d/%m/%Y")
+            return o.isoformat()
         if isinstance(o, Amount):
             return o.signed_value
         return super().default(o)
@@ -21,7 +21,7 @@ class StatementEncoder(json.JSONEncoder):
 
 def _tx_to_dict(tx: Transaction) -> dict[str, Any]:
     d: dict[str, Any] = {
-        "fecha": tx.date.strftime("%d/%m/%Y"),
+        "fecha": tx.date.isoformat(),
         "descripcion": tx.description,
         "importe": float(tx.amount.signed_value),
     }
@@ -35,8 +35,8 @@ def _tx_to_dict(tx: Transaction) -> dict[str, Any]:
 def serialize_statement(stmt: Statement, indent: int | None = None) -> str:
     data: dict[str, Any] = {
         "banco": stmt.bank.name,
-        "fecha_desde": stmt.date_from.strftime("%d/%m/%Y") if stmt.date_from else None,
-        "fecha_hasta": stmt.date_to.strftime("%d/%m/%Y") if stmt.date_to else None,
+        "fecha_desde": stmt.date_from.isoformat() if stmt.date_from else None,
+        "fecha_hasta": stmt.date_to.isoformat() if stmt.date_to else None,
         "detalle": [_tx_to_dict(tx) for tx in stmt.transactions],
     }
     if stmt.metadata:

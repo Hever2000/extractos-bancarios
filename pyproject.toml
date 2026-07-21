@@ -9,6 +9,8 @@ description = "Procesamiento de extractos bancarios argentinos en PDF"
 requires-python = ">=3.12"
 dependencies = [
     "pdfplumber>=0.11.0",
+    "boto3>=1.34",
+    "pymssql>=2.2",
 ]
 
 [project.optional-dependencies]
@@ -18,6 +20,7 @@ dev = [
     "pytest-benchmark>=5.0",
     "mypy>=1.10",
     "ruff>=0.5",
+    "types-boto3>=1.34",
 ]
 
 [tool.setuptools.packages.find]
@@ -47,6 +50,10 @@ explicit_package_bases = true
 
 [[tool.mypy.overrides]]
 module = "pdfplumber"
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = ["boto3", "pymssql"]
 ignore_missing_imports = true
 
 [[tool.mypy.overrides]]

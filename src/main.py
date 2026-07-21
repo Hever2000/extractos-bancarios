@@ -6,7 +6,7 @@ import logging
 import os
 from typing import Any
 
-from src.pipeline import process_statement
+from src.services import process_upload
 
 log = logging.getLogger(__name__)
 
@@ -58,18 +58,18 @@ def handler(event: dict[str, Any], context: object | None = None) -> dict[str, A
         filename = _get_filename(event)
         strict = os.getenv("PIPELINE_STRICT", "false").lower() == "true"
 
-        result = process_statement(pdf_bytes, filename=filename, strict=strict)
+        result = process_upload(pdf_bytes, filename=filename, strict=strict)
 
         return {
             "statusCode": 200,
-            "body": result,
+            "body": json.dumps(result, ensure_ascii=False),
             "headers": {"Content-Type": "application/json"},
         }
 
     except NotImplementedError:
         raise
     except Exception:
-        log.exception("Pipeline failed")
+        log.exception("Handler failed")
         return {
             "statusCode": 500,
             "body": json.dumps({"error": "internal_error"}),
