@@ -186,12 +186,140 @@ def test_account_type_in_footer():
 # ── ACCOUNT TESTS ────────────────────────────
 
 
-def test_account_returns_none():
+def test_account_empty():
     result = extract_account([], [])
     assert result is None
 
 
-def test_account_returns_none_even_with_blocks():
+def test_account_label_same_block():
+    blocks = [_hblock(["Cuenta:", "506086/9"])]
+    result = extract_account(blocks, [])
+    assert result == "506086/9"
+
+
+def test_account_label_with_colon_same_block():
+    blocks = [_hblock(["Cuenta", "N°:", "506086/9"])]
+    result = extract_account(blocks, [])
+    assert result == "506086/9"
+
+
+def test_account_label_nro_cuenta():
+    blocks = [_hblock(["Nro", "Cuenta:", "175-12345/01"])]
+    result = extract_account(blocks, [])
+    assert result == "175-12345/01"
+
+
+def test_account_label_numero_de_cuenta():
+    blocks = [_hblock(["Número", "de", "Cuenta:", "506086/9"])]
+    result = extract_account(blocks, [])
+    assert result == "506086/9"
+
+
+def test_account_label_nro_abbrev():
+    blocks = [_hblock(["Nro.", "Cuenta:", "506086/9"])]
+    result = extract_account(blocks, [])
+    assert result == "506086/9"
+
+
+def test_account_label_nearby_block():
+    label = _hblock(["Cuenta", "N°"], top=10.0)
+    value = _hblock(["506086/9"], top=30.0)
+    result = extract_account([label, value], [])
+    assert result == "506086/9"
+
+
+def test_account_slash_format():
+    blocks = [_hblock(["Cuenta:", "506086/9"])]
+    result = extract_account(blocks, [])
+    assert result == "506086/9"
+
+
+def test_account_dash_slash_format():
+    blocks = [_hblock(["Cuenta:", "175-12345/01"])]
+    result = extract_account(blocks, [])
+    assert result == "175-12345/01"
+
+
+def test_account_dash_dash_format():
+    blocks = [_hblock(["Cuenta:", "123-456789-0"])]
+    result = extract_account(blocks, [])
+    assert result == "123-456789-0"
+
+
+def test_account_plain_9_digits():
+    blocks = [_hblock(["Cuenta:", "123456789"])]
+    result = extract_account(blocks, [])
+    assert result == "123456789"
+
+
+def test_account_plain_12_digits_leading_zeros():
+    blocks = [_hblock(["Cuenta:", "000123456789"])]
+    result = extract_account(blocks, [])
+    assert result == "000123456789"
+
+
+def test_account_discard_cbu_22_digits():
+    blocks = [_hblock(["Cuenta:", "2850590940090418135201"])]
+    result = extract_account(blocks, [])
+    assert result is None
+
+
+def test_account_discard_cuit():
+    blocks = [_hblock(["Cuenta:", "20-12345678-9"])]
+    result = extract_account(blocks, [])
+    assert result is None
+
+
+def test_account_discard_date():
+    blocks = [_hblock(["Cuenta:", "15/01/2024"])]
+    result = extract_account(blocks, [])
+    assert result is None
+
+
+def test_account_discard_amount():
+    blocks = [_hblock(["Cuenta:", "1234,56"])]
+    result = extract_account(blocks, [])
+    assert result is None
+
+
+def test_account_discard_phone():
+    blocks = [_hblock(["Cuenta:", "+54-11-5555-1234"])]
+    result = extract_account(blocks, [])
+    assert result is None
+
+
+def test_account_no_label_not_confident():
+    blocks = [_hblock(["123456789"], top=0.0)]
+    result = extract_account(blocks, [])
+    assert result is None
+
+
+def test_account_multiple_candidates_best_wins():
+    label = _hblock(["Cuenta:"], top=0.0)
+    value = _hblock(["506086/9"], top=20.0)
+    other = _hblock(["999999999"], top=100.0)
+    result = extract_account([label, value, other], [])
+    assert result == "506086/9"
+
+
+def test_account_in_footer():
+    footer = [_fblock(["Cuenta:", "506086/9"])]
+    result = extract_account([], footer)
+    assert result == "506086/9"
+
+
+def test_account_account_type_excluded():
+    blocks = [_hblock(["CUENTA", "CORRIENTE", "Nro:", "123456"])]
+    result = extract_account(blocks, [])
+    assert result is None
+
+
+def test_account_too_short_digits():
     blocks = [_hblock(["Cuenta:", "12345"])]
     result = extract_account(blocks, [])
+    assert result is None
+
+
+def test_account_not_found():
+    result = extract_account([], [])
     assert result is None
