@@ -8,6 +8,7 @@ _LABEL_RE = re.compile(
     r"Cuenta\s*N[°º]|"
     r"N[°º]\s+Cuenta|"
     r"N[uú]mero\s+de\s+Cuenta|"
+    r"\bN[uú]mero\b|"
     r"Nro\.?\s*(de\s+)?Cuenta|"
     r"\bCuenta\b",
     re.I,
@@ -15,6 +16,14 @@ _LABEL_RE = re.compile(
 
 _ACCOUNT_TYPE_EXCLUDE = re.compile(
     r"CUENTA\s+(CORRIENTE|CAJA|AHORRO|SUELDO|ESPECIAL)",
+    re.I,
+)
+
+_ACCOUNT_TYPE_KEYWORDS = re.compile(
+    r"CAJA\s+DE\s+AHORROS?|"
+    r"C\.?C\.?\s*ESPECIAL|"
+    r"CTA\.?\s*CTE[.\s]|"
+    r"C\s*/\s*C",
     re.I,
 )
 
@@ -26,6 +35,8 @@ _ACCOUNT_PATTERNS: list[re.Pattern[str]] = [
     re.compile(r"\b(\d{4,6}-\d{4,10})\b"),
     re.compile(r"\b(\d{8,12})\b"),
     re.compile(r"\b(\d{6,7})\b"),
+    re.compile(r"\b(\d{13,17})\b"),
+    re.compile(r"\b(\d{18,21})\b"),
 ]
 
 _DISCARD_RE = re.compile(
@@ -44,6 +55,7 @@ _AMOUNT_RE = re.compile(r"^\d+[.,]\d{2}$")
 
 _NEARBY_DISTANCE = 50.0
 _CONFIDENCE_THRESHOLD = 80
+_TYPE_BONUS = 40
 
 
 def _block_text(block: TextBlock) -> str:
@@ -121,9 +133,18 @@ def extract_account(
         and not _ACCOUNT_TYPE_EXCLUDE.search(_block_text(b))
     ]
 
+    block_type_bonus: dict[int, int] = {}
+    for i, (block, _, _) in enumerate(all_blocks):
+        text = _block_text(block)
+        if (
+            _ACCOUNT_TYPE_KEYWORDS.search(text)
+            and not _ACCOUNT_TYPE_EXCLUDE.search(text)
+        ):
+            block_type_bonus[i] = _TYPE_BONUS
+
     scored: list[tuple[int, str]] = []
 
-    for block, page, is_header in all_blocks:
+    for block_idx, (block, page, is_header) in enumerate(all_blocks):
         candidates = _find_candidates_in_block(block)
         if not candidates:
             continue
@@ -137,8 +158,10 @@ def extract_account(
         if nearest <= _NEARBY_DISTANCE:
             has_label = True
 
+        type_bonus = block_type_bonus.get(block_idx, 0)
+
         for candidate, pidx in candidates:
-            s = _score(pidx, has_label, nearest, page, is_header)
+            s = _score(pidx, has_label, nearest, page, is_header) + type_bonus
             scored.append((s, candidate))
 
     if not scored:

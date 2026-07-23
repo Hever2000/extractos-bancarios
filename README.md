@@ -1,6 +1,8 @@
-# 📊 Extractos Bancarios
+# Extractos Bancarios
 
 [![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
+[![CI](https://github.com/Hever2000/extractos-bancarios/actions/workflows/ci.yml/badge.svg)](https://github.com/Hever2000/extractos-bancarios/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Servicio de extracción de movimientos de extractos bancarios argentinos en PDF a JSON estructurado. Diseñado para **AWS Lambda** con arquitectura de funciones puras y pipeline declarativo.
 
@@ -47,17 +49,20 @@ El pipeline devuelve un json con esta estructura:
 ```json
 {
   "banco": "Banco Macro",
+  "cbu": "0140000703100050608694",
+  "cuenta": "506086/9",
+  "tipo": "Caja de Ahorro",
   "fecha_desde": "01/12/2025",
   "fecha_hasta": "07/01/2026",
   "detalle": [
     {
-      "fecha": "01/12/2025",
+      "fecha": "2025-12-01",
       "descripcion": "TRANSF 23132999619 VAR",
       "importe": 542000.0,
       "saldo": 2548968.83
     },
     {
-      "fecha": "01/12/2025",
+      "fecha": "2025-12-02",
       "descripcion": "TPUSH GRISELDA VILLA",
       "importe": 12000.0,
       "saldo": 2006968.83
@@ -74,7 +79,7 @@ src/
 ├── models/           # Modelos de dominio (Amount, Transaction, Statement, Document, Table)
 ├── processors/       # Backend de PDF (abstraído via Protocol, implementado con pdfplumber)
 ├── detectors/        # Detección de banco por texto/CBU/filename (scoring)
-├── stages/           # Pipeline de extracción universal (9 etapas)
+├── stages/           # Pipeline de extracción (9 etapas)
 ├── normalizers/      # Normalización de montos (formato argentino → Decimal)
 ├── serializers/      # Serialización a JSON
 ├── validators/       # Validación de Statement con warnings
@@ -102,9 +107,26 @@ make typecheck
 ## Requisitos
 
 - Python 3.12+
-- Dependencias: solo `pdfplumber` en producción
+- Producción: `pdfplumber`, `boto3`, `pymssql`
+- Dev: `pytest`, `mypy`, `ruff`, `types-boto3`
 
-<<<<<<< HEAD
-=======
+## Deploy
 
->>>>>>> 26e950a99d573231b66e583ccae44ae220ee8fbc
+```sh
+# Build imagen Docker
+make docker-build
+
+# Test local
+make docker-test
+
+# Deploy a ECR (requiere AWS_ACCOUNT_ID y AWS_REGION)
+make docker-deploy
+```
+
+
+## Documentación
+
+| Archivo | Descripción |
+|---|---|
+| `docs/guia-proyecto.md` | Guía completa del proyecto, modelos, pipeline y servicios |
+| `docs/roadmap-deploy.md` | Auditoría de funcionalidades y roadmap para producción real |

@@ -1,8 +1,8 @@
 {
   "banco": "Banco Provincia",
-  "cbu": null,
-  "cuenta": null,
-  "tipo": null,
+  "cbu": "0140000703100050608694",
+  "cuenta": "506086/9",
+  "tipo": "Caja de Ahorro",
   "fecha_desde": "2025-10-31",
   "fecha_hasta": "2026-01-30",
   "detalle": [

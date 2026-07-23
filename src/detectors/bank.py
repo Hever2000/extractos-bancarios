@@ -56,12 +56,7 @@ BANKS: tuple[Bank, ...] = (
         ),
         cbu_prefix="011",
     ),
-    Bank(
-        id=BankId.GALICIA,
-        text_patterns=(re.compile(r"\bGALICIA\b", re.I),),
-        filename_patterns=(re.compile(r"galicia", re.I),),
-        cbu_prefix="007",
-    ),
+
 )
 
 

@@ -36,13 +36,6 @@ def test_detect_nacion_by_text():
     assert result.bank.id == BankId.NACION
 
 
-def test_detect_galicia_by_text():
-    text = "BANCO GALICIA Y BUENOS AIRES"
-    result = detect_bank(text)
-    assert result.bank is not None
-    assert result.bank.id == BankId.GALICIA
-
-
 def test_detect_by_cbu():
     text = "CBU 2851234567890123456789"
     result = detect_bank(text)

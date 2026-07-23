@@ -5,8 +5,26 @@ import re
 from src.models.document import TextBlock
 
 _ACCOUNT_TYPE_MAP: list[tuple[re.Pattern[str], str]] = [
-    (re.compile(r"CUENTA\s+CORRIENTE|CTA\.?\s*CTE\.?|C\s*/\s*C\b", re.I), "Cuenta Corriente"),
-    (re.compile(r"CAJA\s+(DE\s+)?AHORRO|CUENTA\s+AHORRO", re.I), "Caja de Ahorro"),
+    (
+        re.compile(
+            r"CUENTA\s+CORRIENTE|"
+            r"CTA\.?\s*CTE\.?|"
+            r"C\s*/\s*C\b|"
+            r"\bCC(?!\s+(?:ESPECIAL|AHORRO|SUELDO))|"
+            r"C\.\s*C\.(?!\s*(?:ESPECIAL|AHORRO|SUELDO))",
+            re.I,
+        ),
+        "Cuenta Corriente",
+    ),
+    (
+        re.compile(
+            r"CAJA\s+(DE\s+)?AHORRO|"
+            r"CUENTA\s+AHORRO|"
+            r"\bCA\b",
+            re.I,
+        ),
+        "Caja de Ahorro",
+    ),
     (re.compile(r"CUENTA\s+SUELDO", re.I), "Cuenta Sueldo"),
     (re.compile(r"CUENTA\s+ESPECIAL", re.I), "Cuenta Especial"),
 ]

@@ -30,6 +30,7 @@ class MutatedResult:
     tables_found: int
     warnings: tuple[str, ...]
     error: str | None = None
+    stage_confidence: float = 0.0
 
 
 def run_mutated_pipeline(doc: Document, bank: Bank) -> MutatedResult:

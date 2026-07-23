@@ -1,8 +1,8 @@
 {
   "banco": "Banco Macro",
   "cbu": null,
-  "cuenta": null,
-  "tipo": null,
+  "cuenta": "470309538602872",
+  "tipo": "Caja de Ahorro",
   "fecha_desde": "2025-12-01",
   "fecha_hasta": "2026-01-07",
   "detalle": [

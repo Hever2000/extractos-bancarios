@@ -33,11 +33,9 @@ def test_new_file_processed_successfully(
 
     result = process_upload(b"pdf data", "test.pdf")
 
-    assert result["exito"] is True
-    assert result["duplicado"] is False
-    assert result["mensaje"] == "Extracto procesado correctamente."
     assert result["banco"] == "Macro"
-    assert result["cantidad_transacciones"] == 0
+    assert result["detalle"] == []
+    assert result["fecha_desde"] is None
 
 
 @patch("src.services.orchestrator.save")
@@ -129,25 +127,33 @@ def test_pipeline_error_saves_error_record(
     assert record.hash_pdf == "err123"
 
 
+@patch("src.services.orchestrator.save")
+@patch("src.services.orchestrator.process_statement")
 @patch("src.services.orchestrator.exists_by_hash")
 @patch("src.services.orchestrator.calculate_sha256")
-def test_s3_error_returns_error_without_db_record(
+def test_s3_failure_still_processes_and_saves_error(
     mock_hash: MagicMock,
     mock_exists: MagicMock,
+    mock_pipeline: MagicMock,
+    mock_save: MagicMock,
 ) -> None:
     mock_hash.return_value = "s3err"
     mock_exists.return_value = False
+    mock_pipeline.side_effect = Exception("Pipeline error")
 
-    with (
-        patch("src.services.orchestrator.upload_to_s3") as mock_s3,
-        patch("src.services.orchestrator.save") as mock_save,
-    ):
+    with patch("src.services.orchestrator.upload_to_s3") as mock_s3:
         mock_s3.side_effect = Exception("S3 upload failed")
         result = process_upload(b"data", "f.pdf")
 
     assert result["exito"] is False
     assert result["duplicado"] is False
-    mock_save.assert_not_called()
+    mock_save.assert_called_once()
+    record: UploadRecord = mock_save.call_args[0][0]
+    assert record.hash_pdf == "s3err"
+    assert record.estado == "ERROR"
+    assert record.bucket is None
+    assert record.s3_key is None
+    assert record.s3_url is None
 
 
 @patch("src.services.orchestrator.save")

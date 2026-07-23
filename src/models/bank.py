@@ -9,7 +9,6 @@ class BankId(Enum):
     MACRO = "Banco Macro"
     PROVINCIA = "Banco Provincia"
     NACION = "Banco Nacion"
-    GALICIA = "Banco Galicia"
 
 
 @dataclass(frozen=True)

@@ -6,8 +6,8 @@ from typing import Any
 
 from src.pipeline import process_statement
 from src.services.hash_service import calculate_sha256
-from src.services.response_builder import build_duplicate, build_error, build_success
-from src.services.s3_service import upload_to_s3
+from src.services.response_builder import build_duplicate, build_error
+from src.services.s3_service import S3UploadResult, upload_to_s3
 from src.services.upload_repository import UploadRecord, exists_by_hash, save
 
 log = logging.getLogger(__name__)
@@ -21,26 +21,21 @@ def process_upload(
     pdf_hash = calculate_sha256(pdf_bytes)
 
     if exists_by_hash(pdf_hash):
-        response = build_duplicate()
-        print(json.dumps(response, ensure_ascii=False))
-        return response
+        log.info("duplicate_detected", extra={"hash": pdf_hash})
+        return build_duplicate()
 
+    s3_result: S3UploadResult | None = None
     try:
         s3_result = upload_to_s3(pdf_bytes, filename)
     except Exception:
-        log.exception("Failed to upload to S3")
-        response = build_error()
-        print(json.dumps(response, ensure_ascii=False))
-        return response
+        log.warning("S3 upload failed, continuing without S3 storage")
 
     try:
         json_str = process_statement(pdf_bytes, filename=filename, strict=strict)
     except Exception:
         log.exception("Pipeline failed")
         _save_error(pdf_hash, filename, s3_result)
-        response = build_error()
-        print(json.dumps(response, ensure_ascii=False))
-        return response
+        return build_error()
 
     try:
         _save_ok(pdf_hash, filename, s3_result, json_str)
@@ -50,30 +45,29 @@ def process_upload(
             _save_error(pdf_hash, filename, s3_result)
         except Exception:
             log.exception("Failed to save ERROR record as well")
-        response = build_error()
-        print(json.dumps(response, ensure_ascii=False))
-        return response
+        return build_error()
 
-    json_data = json.loads(json_str)
-    response = build_success(json_data)
+    json_data: dict[str, Any] = json.loads(json_str)
 
-    print(json.dumps(response, ensure_ascii=False))
-    print(json_str)
+    log.info(
+        "upload_success",
+        extra={"hash": pdf_hash, "filename": filename, "s3_stored": s3_result is not None},
+    )
 
-    return response
+    return json_data
 
 
 def _save_error(
     pdf_hash: str,
     filename: str,
-    s3_result: Any,
+    s3_result: S3UploadResult | None,
 ) -> None:
     record = UploadRecord(
         hash_pdf=pdf_hash,
         nombre_original=filename,
-        bucket=s3_result.bucket,
-        s3_key=s3_result.s3_key,
-        s3_url=s3_result.s3_url,
+        bucket=s3_result.bucket if s3_result else None,
+        s3_key=s3_result.s3_key if s3_result else None,
+        s3_url=s3_result.s3_url if s3_result else None,
         json_resultado=None,
         estado="ERROR",
     )
@@ -83,15 +77,15 @@ def _save_error(
 def _save_ok(
     pdf_hash: str,
     filename: str,
-    s3_result: Any,
+    s3_result: S3UploadResult | None,
     json_str: str,
 ) -> None:
     record = UploadRecord(
         hash_pdf=pdf_hash,
         nombre_original=filename,
-        bucket=s3_result.bucket,
-        s3_key=s3_result.s3_key,
-        s3_url=s3_result.s3_url,
+        bucket=s3_result.bucket if s3_result else None,
+        s3_key=s3_result.s3_key if s3_result else None,
+        s3_url=s3_result.s3_url if s3_result else None,
         json_resultado=json_str,
         estado="OK",
     )

@@ -58,10 +58,9 @@ Si el puntaje total es menor a 30, asume que no pudo identificar el banco.
 
 ## El Proceso (El Pipeline)
 
-
 ### Paso 1: Extraer el texto del PDF
 
-**Carpeta:** `src/processors`
+**Archivo:** `src/processors/pdfplumber_impl.py`
 
 Abre el pdf con `pdfplumber` que extrae cada palabra con sus coordenadas en la página: dónde está ubicada (posición X e Y), su tamaño, y la fuente tipográfica.
 
@@ -69,7 +68,7 @@ Abre el pdf con `pdfplumber` que extrae cada palabra con sus coordenadas en la p
 
 ### Paso 2: Identificar el banco
 
-**Carpeta:** `src/detectors`
+**Archivo:** `src/detectors/bank.py`
 
 Toma todo el texto extraído y el nombre del archivo, y aplica el sistema de puntajes para determinar de qué banco es el extracto.
 
@@ -95,7 +94,7 @@ Una vez que encuentra la tabla, también detecta automáticamente **cuántas col
 
 **Archivo:** `src/stages/header_detector.py`
 
-Saca del medio cualquier cosa que esté **arriba** de la tabla y que parezca un encabezado 
+Saca del medio cualquier cosa que esté **arriba** de la tabla y que parezca un encabezado (fechas de consulta, CBU, nombre del banco, etc.).
 
 ### Paso 6: Limpiar pies de página
 
@@ -140,19 +139,19 @@ Traduce las columnas del formato original de cada banco al **formato SOS** (fech
 
 ### Paso 11: Construir las transacciones
 
-**Archivos:** `src/stages/transaction_builder.py` 
+**Archivo:** `src/stages/transaction_builder.py`
 
-Convierte cada fila ya mapeada en una **transacción** propiamente dicha. 
+Convierte cada fila ya mapeada en una **transacción** propiamente dicha.
 
-### Paso 12: Validar y ordenar
+### Paso 12: Normalizar montos
 
-**Carpeta:** `src/normalizers`
+**Archivo:** `src/normalizers/amount.py`
 
 Acá es donde los importes y saldos se normalizan: el formato argentino ($ 1.234,56) se convierte a un número estándar (1234.56). Los negativos se detectan si tienen **signo menos adelante** (-$100), **signo menos atrás** (100-), o están **entre paréntesis** (($100)).
 
 ### Paso 13: Validar y ordenar
 
-**Carpeta:** `src/validators`
+**Archivo:** `src/validators/schema.py`
 
 1. **Ordena** todas las transacciones por fecha (de más antigua a más reciente)
 2. Calcula la **fecha desde** (primera transacción) y **fecha hasta** (última transacción)
@@ -161,13 +160,23 @@ Acá es donde los importes y saldos se normalizan: el formato argentino ($ 1.234
    - Si hay transacciones duplicadas exactas, agrega un aviso
    - Si la fecha "desde" es posterior a la fecha "hasta", lanza un error (esto no debería pasar)
 
-### Paso 14 
+### Paso 14: Serializar a JSON
 
-**Carpeta:** `src/serializers`
+**Archivo:** `src/serializers/json.py`
 
 Como paso final, convierte todo a JSON y lo devuelve.
 
 Todos estos pasos están coordinados desde un único archivo **`src/pipeline.py`**, que es el que los encadena en orden, maneja los errores, y se asegura de que cada paso reciba lo que necesita del anterior.
+
+### Metadatos adicionales
+
+Además de las transacciones, el pipeline extrae metadatos del extracto:
+
+| Archivo | Qué extrae |
+|---|---|
+| `src/extractors/cbu.py` | CBU de la cuenta (desde bloques de header/footer) |
+| `src/extractors/account.py` | Número de cuenta (por sistema de scoring) |
+| `src/extractors/account_type.py` | Tipo de cuenta (caja de ahorro, cuenta corriente, etc.) |
 
 ---
 
@@ -175,7 +184,7 @@ Todos estos pasos están coordinados desde un único archivo **`src/pipeline.py`
 
 **Carpeta:** `src/models/`
 
-Aca se definen los modelos para guardar la información en cada etapa:
+Acá se definen los modelos para guardar la información en cada etapa:
 
 ### Word (Palabra)
 Es la unidad más chiquita: una palabra con su texto, posición en la página (x0, x1, top, bottom), y la fuente tipográfica.
@@ -216,6 +225,11 @@ Es un movimiento ya listo para salir: fecha, descripción, importe (Amount), y s
 ### Statement (Extracto)
 El resultado final del proceso: banco, fecha_desde, fecha_hasta, lista de transacciones, y warnings (avisos).
 
+### UploadRecord (Registro de subida)
+**Archivo:** `src/services/upload_repository.py`
+
+Representa la persistencia del resultado en SQL Server: hash del PDF, metadatos de S3, JSON resultado, y estado (OK/ERROR).
+
 ### Tipos de errores
 **Archivo:** `src/models/errors.py`
 
@@ -224,6 +238,52 @@ El proyecto define sus propios errores para distintas etapas:
 - **DetectionError**: no se pudo identificar el banco
 - **ParseError**: no se pudieron interpretar los datos extraídos
 - **ValidationError**: los datos no pasaron las validaciones finales
+
+---
+
+## Capa de Servicios (Integración AWS)
+
+**Carpeta:** `src/services/`
+
+Además del pipeline, el proyecto tiene una capa de servicios que orquesta toda la operación en AWS.
+
+### Orchestrator (Orquestador)
+**Archivo:** `src/services/orchestrator.py`
+
+Coordina el flujo completo:
+1. Calcula el SHA-256 del PDF
+2. Verifica si ya existe (duplicado) consultando SQL Server
+3. Si es nuevo, sube el PDF a S3
+4. Ejecuta el pipeline de extracción
+5. Guarda el resultado en SQL Server (con estado OK o ERROR)
+6. Devuelve una respuesta estructurada
+
+Si alguna etapa falla, intenta guardar un registro con estado ERROR para no perder el rastro del archivo.
+
+### Hash Service
+**Archivo:** `src/services/hash_service.py`
+
+Calcula el SHA-256 del PDF para detección de duplicados.
+
+### S3 Service
+**Archivo:** `src/services/s3_service.py`
+
+Sube el PDF original a S3 en la ruta `extractos/{YYYY}/{MM}/{uuid}.pdf`. Construye la URL pública del objeto.
+
+### Response Builder
+**Archivo:** `src/services/response_builder.py`
+
+Construye respuestas estructuradas para tres escenarios:
+- **success**: `{exito: true, banco, cantidad_transacciones, fecha_desde, fecha_hasta}`
+- **duplicate**: `{exito: false, duplicado: true, mensaje}`
+- **error**: `{exito: false, duplicado: false, mensaje}`
+
+### Upload Repository
+**Archivo:** `src/services/upload_repository.py`
+
+Persistencia en SQL Server usando pymssql. Las operaciones son:
+- `exists_by_hash(hash)`: consulta si un PDF ya fue procesado
+- `save(record)`: inserta un registro con el resultado
 
 ---
 
@@ -240,15 +300,41 @@ python -m src extracto.pdf --strict # Modo estricto (falla en lugar de dar aviso
 ### Como servicio en la nube (AWS Lambda)
 **Archivo:** `src/main.py`
 
-El proyecto está preparado para correr en AWS Lambda. Recibe el PDF a través de una API (API Gateway), lo procesa en el servidor, y devuelve el JSON. También está preparado para recibir archivos desde S3 (el servicio de almacenamiento de Amazon), aunque esa funcionalidad aún no está implementada.
+El proyecto está preparado para correr en AWS Lambda como una **container image**. El Lambda handler recibe el PDF a través de API Gateway (en el body del POST como base64) y devuelve el JSON procesado.
+
+Flujo completo en AWS:
+
+```
+WhatsApp Bot (otra Lambda)
+    │ POST /process (PDF en body)
+    ▼
+API Gateway
+    │
+    ▼
+Lambda (esta imagen Docker)
+    ├── SHA-256 → check SQL Server (duplicado?)
+    ├── Upload PDF a S3
+    ├── Pipeline de extracción
+    ├── Save resultado a SQL Server
+    └── Response: {exito, duplicado, mensaje, resumen}
+```
+
+**Nota:** El trigger por S3 (cuando se sube un PDF a un bucket) no está implementado aún.
 
 ### Variables de entorno configurables
 
-| Variable | Qué hace |
-|---|---|
-| `LOG_LEVEL` | Nivel de detalle de los mensajes de registro (DEBUG, INFO, WARNING, ERROR) |
-| `PIPELINE_STRICT` | Si es "true", el modo estricto está activado por defecto |
-| `DEFAULT_ENCODING` | Codificación de caracteres (utf-8 por defecto) |
+| Variable | Requerida | Default | Descripción |
+|---|---|---|---|
+| `LOG_LEVEL` | No | `INFO` | Nivel de log (DEBUG, INFO, WARNING, ERROR) |
+| `PIPELINE_STRICT` | No | `false` | Modo estricto (falla en lugar de warnings) |
+| `DEFAULT_ENCODING` | No | `utf-8` | Codificación de caracteres |
+| `S3_BUCKET` | Sí | — | Bucket S3 para almacenar PDFs originales |
+| `DB_HOST` | Sí | — | Host del SQL Server |
+| `DB_PORT` | No | `1433` | Puerto del SQL Server |
+| `DB_NAME` | Sí | — | Nombre de la base de datos |
+| `DB_USER` | Sí | — | Usuario de base de datos |
+| `DB_PASSWORD` | Sí | — | Password de base de datos |
+| `DB_TABLE` | No | `impo_uni_archivos_upload` | Nombre de la tabla de persistencia |
 
 ---
 
@@ -265,6 +351,7 @@ Cada componente del pipeline tiene su propio conjunto de pruebas. Por ejemplo, h
 - **Normalizadores**: que conviertan correctamente los distintos formatos de importe
 - **Cada etapa del pipeline**: que el detector de tablas encuentre la tabla, que el fusionador de filas junte bien las descripciones multi-línea, que el clasificador de columnas asigne bien los tipos, etc.
 - **Validadores**: que detecten transacciones duplicadas, extractos vacíos, fechas inconsistentes
+- **Servicios**: tests para orchestrator, S3, hash, response builder, upload repository
 
 ### Tests de integración (Golden Tests)
 **Archivo:** `tests/test_pipeline.py` | **PDFs de muestra:** `tests/samples/` | **Resultados de referencia:** `tests/samples/golden_*.json`
@@ -292,7 +379,7 @@ Son más de 30 tipos de mutaciones diferentes, agrupadas en 16 categorías:
 | Columnas faltantes | ¿Y si falta alguna columna importante? |
 | Espaciado horizontal | ¿Y si las columnas están más juntas o más separadas? |
 | Espaciado vertical | ¿Y si los renglones tienen distinto espacio entre sí? |
-| Fechas | ¿Y si las fechas tienenformatos raros? |
+| Fechas | ¿Y si las fechas tienen formatos raros? |
 | Importes | ¿Y si los montos tienen formatos extraños? |
 | Caracteres especiales | ¿Y si aparecen símbolos raros o tildes? |
 | Filas vacías | ¿Y si hay filas sin datos? |
@@ -302,5 +389,47 @@ Son más de 30 tipos de mutaciones diferentes, agrupadas en 16 categorías:
 
 Al final, genera un **reporte consolidado** que dice qué tan robusto es el sistema frente a cada tipo de problema.
 
+---
 
+## Infraestructura
 
+### Docker
+
+El proyecto corre en AWS Lambda usando una **container image**:
+
+- **Base image:** `public.ecr.aws/lambda/python:3.12`
+- **Dependencias de sistema:** `freetds-devel gcc` (necesario para compilar pymssql)
+- **Entrypoint:** `src.main.handler`
+
+### CI/CD (GitHub Actions)
+
+El archivo `.github/workflows/ci.yml` define dos pipelines:
+
+1. **verify** (push a main + PRs): corre lint (ruff), typecheck (mypy), y tests (pytest) en Python 3.12 y 3.13
+2. **deploy** (tags v*): asume rol de AWS, buildea la imagen, la pushea a ECR, y actualiza la función Lambda
+
+### Modelo de datos SQL Server
+
+Tabla `impo_uni_archivos_upload` (configurable via `DB_TABLE`):
+
+| Columna | Tipo | Descripción |
+|---|---|---|
+| `hash_pdf` | varchar(64) PK | SHA-256 del PDF |
+| `nombre_original` | varchar(255) | Nombre original del archivo |
+| `bucket` | varchar(255) | Bucket S3 |
+| `s3_key` | varchar(512) | Key en S3 |
+| `s3_url` | varchar(1024) | URL pública del archivo |
+| `json_resultado` | text | JSON de salida (nullable, solo OK) |
+| `estado` | varchar(20) | OK o ERROR |
+| `fecha_upload` | datetime (default GETDATE()) | Fecha de creación |
+
+---
+
+## Limitaciones Conocidas
+
+- **PDF escaneado**: si el PDF es una imagen (no tiene texto seleccionable), no se puede procesar
+- **S3 trigger**: no implementado (solo se aceptan PDFs por API Gateway)
+- **Tamaño máximo**: 10MB (configurable en `pipeline.py`)
+- **Bancos soportados**: Macro, Provincia, Nación. Para agregar más, ver `src/detectors/bank.py`
+
+Para más detalle sobre lo que falta para producción, ver `docs/roadmap-deploy.md`.

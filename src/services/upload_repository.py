@@ -1,12 +1,16 @@
 from __future__ import annotations
 
-import os
+import re
 from collections.abc import Generator
 from contextlib import contextmanager
 from dataclasses import dataclass
 from typing import Any
 
 import pymssql
+
+from src.services.secret_service import get_db_config
+
+_VALID_TABLE_RE = re.compile(r"^[a-zA-Z_][a-zA-Z0-9_]*$")
 
 
 @dataclass(frozen=True)
@@ -22,12 +26,13 @@ class UploadRecord:
 
 @contextmanager
 def _connection() -> Generator[Any, None, None]:
+    cfg = get_db_config()
     conn = pymssql.connect(
-        server=os.environ["DB_HOST"],
-        port=os.getenv("DB_PORT", "1433"),
-        database=os.environ["DB_NAME"],
-        user=os.environ["DB_USER"],
-        password=os.environ["DB_PASSWORD"],
+        server=cfg["host"],
+        port=cfg["port"],
+        database=cfg["database"],
+        user=cfg["user"],
+        password=cfg["password"],
     )
     try:
         yield conn
@@ -36,7 +41,10 @@ def _connection() -> Generator[Any, None, None]:
 
 
 def _table_name() -> str:
-    return os.getenv("DB_TABLE", "impo_uni_archivos_upload")
+    name = get_db_config()["table"]
+    if not _VALID_TABLE_RE.match(name):
+        raise ValueError(f"Invalid table name: {name!r}")
+    return name
 
 
 def exists_by_hash(hash_pdf: str) -> bool:

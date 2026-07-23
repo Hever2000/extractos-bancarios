@@ -183,6 +183,42 @@ def test_account_type_in_footer():
     assert result == "Cuenta Corriente"
 
 
+def test_account_type_cc_abbrev():
+    blocks = [_hblock(["CC", "Nro:", "12345"])]
+    result = extract_account_type(blocks, [])
+    assert result == "Cuenta Corriente"
+
+
+def test_account_type_cc_dotted():
+    blocks = [_hblock(["C.C.", "Nro:", "12345"])]
+    result = extract_account_type(blocks, [])
+    assert result == "Cuenta Corriente"
+
+
+def test_account_type_cc_with_dash():
+    blocks = [_hblock(["03", "-", "CC", "$", "00850005400123"])]
+    result = extract_account_type(blocks, [])
+    assert result == "Cuenta Corriente"
+
+
+def test_account_type_cc_especial_not_confused():
+    blocks = [_hblock(["C.C.", "ESPECIAL"])]
+    result = extract_account_type(blocks, [])
+    assert result is None  # "C.C. ESPECIAL" ambiguo, no forzar Cte. Cte.
+
+
+def test_account_type_ca_abbrev():
+    blocks = [_hblock(["CA", "Nro:", "506086/9"])]
+    result = extract_account_type(blocks, [])
+    assert result == "Caja de Ahorro"
+
+
+def test_account_type_ca_caja_ahorro_alias():
+    blocks = [_hblock(["CA", "AHORRO", "Nro:", "12345"])]
+    result = extract_account_type(blocks, [])
+    assert result == "Caja de Ahorro"
+
+
 # ── ACCOUNT TESTS ────────────────────────────
 
 
@@ -322,4 +358,71 @@ def test_account_too_short_digits():
 
 def test_account_not_found():
     result = extract_account([], [])
+    assert result is None
+
+
+def test_account_label_numero_alone():
+    blocks = [_hblock(["Número", "470309538602872"])]
+    result = extract_account(blocks, [])
+    assert result == "470309538602872"
+
+
+def test_account_label_numero_same_block():
+    blocks = [_hblock(["Número", "470309538602872"])]
+    result = extract_account(blocks, [])
+    assert result == "470309538602872"
+
+
+def test_account_label_numero_nearby():
+    label = _hblock(["Número:"], top=10.0)
+    value = _hblock(["470309538602872"], top=25.0)
+    result = extract_account([label, value], [])
+    assert result == "470309538602872"
+
+
+def test_account_long_14_digits():
+    blocks = [_hblock(["Cuenta:", "00850005400123"])]
+    result = extract_account(blocks, [])
+    assert result == "00850005400123"
+
+
+def test_account_long_15_digits():
+    blocks = [_hblock(["Cuenta:", "470309538602872"])]
+    result = extract_account(blocks, [])
+    assert result == "470309538602872"
+
+
+def test_account_long_18_digits():
+    blocks = [_hblock(["Cuenta:", "123456789012345678"])]
+    result = extract_account(blocks, [])
+    assert result == "123456789012345678"
+
+
+def test_account_long_21_digits():
+    blocks = [_hblock(["Cuenta:", "123456789012345678901"])]
+    result = extract_account(blocks, [])
+    assert result == "123456789012345678901"
+
+
+def test_account_discard_22_digits_cbu():
+    blocks = [_hblock(["Número:", "2850590940090418135201"])]
+    result = extract_account(blocks, [])
+    assert result is None
+
+
+def test_account_type_keyword_bonus_caja_ahorro():
+    blocks = [_hblock(["506086/9", "CAJA", "DE", "AHORROS", "EN", "PESOS"])]
+    result = extract_account(blocks, [])
+    assert result == "506086/9"
+
+
+def test_account_type_keyword_bonus_cc_especial():
+    blocks = [_hblock(["470309538602872", "C.C.", "ESPECIAL"])]
+    result = extract_account(blocks, [])
+    assert result == "470309538602872"
+
+
+def test_account_type_keyword_excluded_still_not_confident():
+    blocks = [_hblock(["CUENTA", "CORRIENTE", "Nro:", "123456"])]
+    result = extract_account(blocks, [])
     assert result is None
